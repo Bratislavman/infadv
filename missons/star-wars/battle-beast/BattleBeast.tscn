@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://mi0u3bnvrqjq"]
+[gd_scene load_steps=10 format=3 uid="uid://mi0u3bnvrqjq"]
 
 [ext_resource type="Script" path="res://missons/star-wars/battle-beast/BattleBeast.gd" id="1_iltwi"]
-[ext_resource type="Texture2D" uid="uid://reji0v7fendd" path="res://main/battle/Duku.jpg" id="2_vu6xd"]
+[ext_resource type="Texture2D" uid="uid://dd1i3qjfu36xe" path="res://main/battle/Duku2.jpg" id="2_wrxlq"]
 
 [sub_resource type="Animation" id="Animation_xllo3"]
 resource_name = "stay"
@@ -12,10 +12,22 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 5, 5, 5, 6, 6]
+"values": [0, 0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_ua6m8"]
@@ -30,7 +42,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ek00a"]
@@ -39,16 +63,56 @@ _data = {
 "stay": SubResource("Animation_xllo3")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bh02"]
+atlas = ExtResource("2_wrxlq")
+region = Rect2(0, 0, 45, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rus3u"]
+atlas = ExtResource("2_wrxlq")
+region = Rect2(0, 72, 45, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2giq"]
+atlas = ExtResource("2_wrxlq")
+region = Rect2(0, 144, 45, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0v8pi"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bh02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rus3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2giq")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="StartScene" type="Node2D"]
 script = ExtResource("1_iltwi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(408, 186)
-texture = ExtResource("2_vu6xd")
-hframes = 6
-frame = 5
+position = Vector2(411, 186)
+scale = Vector2(1.36364, 1)
+texture = ExtResource("2_wrxlq")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 72)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_ek00a")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0v8pi")
+animation = &"new_animation"
+frame_progress = 0.0212823
