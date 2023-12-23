@@ -2,6 +2,8 @@ extends Node
 
 const SAVE_PATH = "user://save_config_file222.ini"
 
+var mission = null
+
 var x = 0
 
 func test():
@@ -33,4 +35,4 @@ func _input(event):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://missons/star-wars/StartScene.tscn")
+	get_tree().change_scene_to_file("res://missons/star-wars/battle-beast/BattleBeast.tscn")
