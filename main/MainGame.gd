@@ -4,6 +4,9 @@ const SAVE_PATH = "user://save_config_file222.ini"
 
 var x = 0
 
+func test():
+	print(666)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var config = ConfigFile.new()
@@ -25,3 +28,9 @@ func _input(event):
 				var config = ConfigFile.new()
 				config.load(SAVE_PATH)
 				print(config.get_value("player", "health"))
+
+
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://missons/star-wars/StartScene.tscn")

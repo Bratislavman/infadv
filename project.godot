@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Infinity-adventures"
+run/main_scene="res://main/MainScene.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://main/icon.svg"
+
+[autoload]
+
+G="*res://main/MainGame.gd"
