@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq401hmwu2lqo"
-path="res://.godot/imported/Duku — копия.jpg-f4db4fa3dcf12ca0712611c1e27eb646.ctex"
+uid="uid://cvghystgv55yv"
+path="res://.godot/imported/Rex.png-8e21c342b7ad5adba5040552215ea6f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/battle/anim/Duku — копия.jpg"
-dest_files=["res://.godot/imported/Duku — копия.jpg-f4db4fa3dcf12ca0712611c1e27eb646.ctex"]
+source_file="res://missons/star-wars/battle/characters/rex/Rex.png"
+dest_files=["res://.godot/imported/Rex.png-8e21c342b7ad5adba5040552215ea6f8.ctex"]
 
 [params]
 
