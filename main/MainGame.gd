@@ -35,4 +35,6 @@ func _input(event):
 
 
 func _on_button_pressed():
+	var StarWarsType = load("res://missons/star-wars/StarWars.gd")
+	G.mission = StarWarsType.new()
 	get_tree().change_scene_to_file("res://main/battle/Field.tscn")
