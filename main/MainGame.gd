@@ -35,4 +35,4 @@ func _input(event):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://missons/star-wars/battle/battles/beast/BattleBeast.tscn")
+	get_tree().change_scene_to_file("res://main/battle/Field.tscn")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://l2inm5hwj17x"]
+
+[ext_resource type="PackedScene" uid="uid://doas1bjecl4xh" path="res://main/battle/Cell.tscn" id="1_wfwlx"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yev5g"]
+
+[node name="Field" type="Node2D"]
+position = Vector2(57, 337)
+
+[node name="Cell" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(95, 93)
+
+[node name="Cell2" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(1, 93)
+
+[node name="Cell3" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(0, -40)
+
+[node name="Cell4" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(91, -39)
+
+[node name="Cell5" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(181, 94)
+
+[node name="Cell6" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(182, -38)
+
+[node name="Cell7" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(425, 96)
+
+[node name="Cell8" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(331, 96)
+
+[node name="Cell9" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(330, -37)
+
+[node name="Cell10" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(421, -36)
+
+[node name="Cell11" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(511, 97)
+
+[node name="Cell12" parent="." instance=ExtResource("1_wfwlx")]
+position = Vector2(512, -35)
+
+[node name="bg" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(275, -68)
+scale = Vector2(662, 536)
+texture = SubResource("CanvasTexture_yev5g")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(278, -69)
+scale = Vector2(1.12826, 1.54199)
+zoom = Vector2(1.74, 1.21)
