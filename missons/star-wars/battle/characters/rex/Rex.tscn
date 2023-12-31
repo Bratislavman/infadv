@@ -1,34 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cirgegvyew1oi"]
+[gd_scene load_steps=7 format=3 uid="uid://c656a3d7rgmgy"]
 
 [ext_resource type="Texture2D" uid="uid://cvghystgv55yv" path="res://missons/star-wars/battle/characters/rex/Rex.png" id="1_56f2u"]
-
-[sub_resource type="Animation" id="Animation_qwtc0"]
-resource_name = "stay"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Rect2(8, 7, 37, 64), Rect2(186, 7, 37, 64)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, -26)]
-}
+[ext_resource type="Script" path="res://missons/star-wars/battle/characters/rex/Rex.gd" id="1_v73fp"]
 
 [sub_resource type="Animation" id="Animation_5grda"]
 length = 0.001
@@ -67,10 +40,10 @@ tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Rect2(345, 197, 47, 52), Rect2(408, 190, 68, 57)]
+"values": [Rect2(345, 197, 47, 52), Rect2(408, 190, 68, 57), Rect2(345, 197, 47, 52)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -79,10 +52,52 @@ tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(1, -21), Vector2(-10, -26), Vector2(1, -21)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["stay"],
+"method": &"playAnim"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qwtc0"]
+resource_name = "stay"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(1, -21), Vector2(-10, -26)]
+"values": [Rect2(8, 7, 37, 64), Rect2(186, 7, 37, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -29)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n3pne"]
@@ -92,7 +107,8 @@ _data = {
 "stay": SubResource("Animation_qwtc0")
 }
 
-[node name="RexSprite" type="Node2D"]
+[node name="Rex" type="Node2D"]
+script = ExtResource("1_v73fp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_56f2u")
