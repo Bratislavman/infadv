@@ -21,9 +21,10 @@ var positionPlace = null
 var countMove = 1
 var countActions = 1
 
-func _init(name, bio = ""):
+func _init(name, bio = "", side = ""):
 	self.title = name
 	self.bio = bio
+	self.side = side
 	Unit.ids += 1
 	id = Unit.ids
 	chrsInit() 
@@ -60,7 +61,7 @@ func action():
 		activeSpell()
 		
 	if (countMove == 0 || countActions == 0):
-		G.battleController.nextUnit()	
+		G.battleController.nextUnit()
 	
 func getActiveSpells(spell):	
 	return spell.isActive()
@@ -68,6 +69,9 @@ func getActiveSpells(spell):
 func activeSpell():
 	var activeSpells = spells.filter(getActiveSpells)
 	actionAI(activeSpells)
+
+func removeEffect(effect):
+	effects.remove_at()	
 	
 func actionAI(spells):
 	pass

@@ -10,12 +10,15 @@ func _init(target, events):
 	self.target = target
 	self.events = events
 
-func preaction(event):
+func effectAction(event):
 	return false
+	
+func ends():
+	if (countLife == 0):
+		target.removeEffect(self)
+	else:
+		countLife -= 1
 
 func action(event):
-	if (preaction(event)):
-		if (countLife == 0):
-			target.removeEffect(self)
-		else:
-			countLife -= 1
+	effectAction(event)
+

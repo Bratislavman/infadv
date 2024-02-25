@@ -17,18 +17,12 @@ func test():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var config = ConfigFile.new()
-	config.load(SAVE_PATH)
-	x = config.get_value("player", "health" , 1)
+#	var config = ConfigFile.new()
+#	config.load(SAVE_PATH)
+#	x = config.get_value("player", "health" , 1)
 	
+	battleController.start([
+		Rex.new('Рекс 1', battleController.BATTLE_SIDES.HERO),
+		Rex.new('Рекс 2', battleController.BATTLE_SIDES.ENEMY),
+	])
 	
-	var obj1 = СharacteristicWithMax.new('vbvb', 10)
-	obj1.plus(100)
-	obj1.minus(100)
-	obj1.plus(3)
-	
-	Unit.new('vbvb')
-	Unit.new('vbvb2')
-	
-#	battleController.nextCommand()
-	test()

@@ -4,6 +4,7 @@ class_name BattleController
 
 const BATTLE_EVENTS = {
 	'BEFORE_TAKING_DAMAGE': 'BEFORE_TAKING_DAMAGE',
+	'START': 'START',
 	'UNIT_DEATH': 'UNIT_DEATH',
 }
 
@@ -18,6 +19,18 @@ var unitList = []
 var commandList = []
 var currentUnitIndex = -1
 var currentCommandIndex = -1
+var enemyList = []
+var heroList = []
+var unitSideList = {
+	[BATTLE_SIDES.HERO]: {
+		'live': [],
+		'death': []
+	},
+	[BATTLE_SIDES.ENEMY]: {
+		'live': [],
+		'death': []
+	},
+}
 
 func start(units):
 	unitList = units
@@ -41,6 +54,16 @@ func nextUnit():
 	currentUnitIndex = currIndex
 	var unit = getCurrUnit()
 	unit.start()
+
+func getEnemy(unit):
+	var side = ''
+	if (unit.side == BATTLE_SIDES.ENEMY):
+		side =  BATTLE_SIDES.HERO
+	if (unit.side == BATTLE_SIDES.HERO):
+		side =  BATTLE_SIDES.ENEMY
+	for enemy in unitList:
+		if (enemy.side == side):
+			return enemy
 
 func getCurrCommand():
 	return commandList[currentCommandIndex]
@@ -66,18 +89,55 @@ func pushEvent(event):
 		if (unit.efects.size()):
 			for efect in unit.efects:
 				efect.action(event)
+
+func checkEndBattle():
+	for unit in unitList:
+		if (unit.side != BATTLE_SIDES.NEUTRAL):
+			if (unit.isDead):
+				unitSideList[unit.side].death.append(unit) 
+			else:
+				unitSideList[unit.side].live.append(unit)
+ 
+	var enemyDeath = (
+		unitSideList[BATTLE_SIDES.HERO].death.size()
+		==
+		unitSideList[BATTLE_SIDES.HERO].live.size()
+	)	
+	var heroDeath = (
+		unitSideList[BATTLE_SIDES.ENEMY].death.size()
+		==
+		unitSideList[BATTLE_SIDES.ENEMY].live.size()
+	)
+	var allDeath = enemyDeath && heroDeath	
+	
+	if (allDeath):
+		endBattle(BATTLE_SIDES.NEUTRAL)
+		return true
+	else:	
+		if (heroDeath):
+			endBattle(BATTLE_SIDES.ENEMY)	
+			return true
+		else:
+			if (enemyDeath):
+				endBattle(BATTLE_SIDES.HERO)
+				return true
+	return false	
+		
+func endBattle(sideWinner):
+	stop()
 	
 #когда бой, если есть актив команд, то исполняем текущую
 #иначе текущий юнит(если он не в команде игрока) делает действие	
 func _process(del):
 	if (isActive):
-		if (haveActiveCommands()):
-			var command = getCurrCommand()
-			if (command.isActive):
-				command.actionProcess()
-		else:
-			var unit = getCurrUnit()
-			if (unit.isDeath()):
-				nextUnit()
+		if (!checkEndBattle()):
+			if (haveActiveCommands()):
+				var command = getCurrCommand()
+				if (command.isActive):
+					command.actionProcess()
 			else:
-				unit.action()
+				var unit = getCurrUnit()
+				if (unit.isDeath()):
+					nextUnit()
+				else:
+					unit.action()

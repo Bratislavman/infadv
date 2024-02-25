@@ -2,10 +2,10 @@ extends Unit
 
 class_name Rex
 
-func _init(title, spells, side):
-	super._init(title,'Великий воин')
-	self.spells = [Attack.new(), AttackDouble.new()]
-	self.effects = [Counterattack.new()]
+func _init(title, side):
+	super._init(title,'Великий воин', side)
+	self.spells = [Attack.new(self), AttackDouble.new(self)]
+	self.effects = [Counterattack.new(self)]
 	self.side = side
 
 func chrsInit():
