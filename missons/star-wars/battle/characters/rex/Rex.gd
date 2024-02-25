@@ -1,17 +1,20 @@
-extends Node2D
+extends Unit
 
-var animPlayer = null
+class_name Rex
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	animPlayer = get_node("Sprite2D/AnimationPlayer")
-	animPlayer.play('stay')
+func _init(title, spells, side):
+	super._init(title,'Великий воин')
+	self.spells = [Attack.new(), AttackDouble.new()]
+	self.effects = [Counterattack.new()]
+	self.side = side
 
+func chrsInit():
+	chrs = {
+		[Сharacteristic.CHARACTERISTICS.HP]: СharacteristicWithMax.new(Сharacteristic.CHARACTERISTICS.HP, 20),
+		[Сharacteristic.CHARACTERISTICS.DMG]: Сharacteristic.new(Сharacteristic.CHARACTERISTICS.DMG, 1),
+	}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func playAnim(anim):
-	animPlayer.play(anim)
+#на самом деле до выбора спела мы должны определить цели для спела
+func actionAI(spells):
+	var enemy = G.battleController.getEnemy(self)
+	spells.pick_random().action(enemy)
