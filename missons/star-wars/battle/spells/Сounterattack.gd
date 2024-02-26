@@ -13,7 +13,7 @@ func preaction(event):
 		var currComm = G.battleController.getCurrCommand()
 		if (reflectedAttackCommandId != currCommId):
 			reflectedAttackCommandId = currCommId
-			var comm = CommandAttack.new(currComm.target, currComm.creator, 1)
+			var comm = CommandAttack.new(currComm.creator, 1)
 			G.battleController.replaceCurrCommand(comm)
 		return true
 	return false

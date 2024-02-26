@@ -9,12 +9,15 @@ func _init(title, side):
 	self.side = side
 
 func chrsInit():
+	var hp = Сharacteristic.CHARACTERISTICS.HP
+	var dmg = Сharacteristic.CHARACTERISTICS.DMG
 	chrs = {
-		[Сharacteristic.CHARACTERISTICS.HP]: СharacteristicWithMax.new(Сharacteristic.CHARACTERISTICS.HP, 20),
-		[Сharacteristic.CHARACTERISTICS.DMG]: Сharacteristic.new(Сharacteristic.CHARACTERISTICS.DMG, 1),
+		hp: СharacteristicWithMax.new(Сharacteristic.CHARACTERISTICS.HP, 20),
+		dmg: Сharacteristic.new(Сharacteristic.CHARACTERISTICS.DMG, 1),
 	}
 
 #на самом деле до выбора спела мы должны определить цели для спела
 func actionAI(spells):
 	var enemy = G.battleController.getEnemy(self)
+	print(enemy, 'actionAI')
 	spells.pick_random().action(enemy)

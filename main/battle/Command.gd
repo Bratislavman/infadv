@@ -7,10 +7,9 @@ static var ids = 0
 
 var id = 0
 var isActive = true
-var isPreprocess = false
+var processBlock = false
 
-func _init(creator, target):
-	self.creator = creator
+func _init(target):
 	self.target = target
 	CommandCl.ids += 1
 	id = CommandCl.ids

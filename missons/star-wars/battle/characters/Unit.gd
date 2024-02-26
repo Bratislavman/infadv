@@ -14,7 +14,7 @@ var title = ""
 var bio = ""
 var spells = []
 var effects = []
-var chrs = []
+var chrs = {}
 
 var positionPlace = null
 
@@ -46,10 +46,10 @@ func start():
 			spell.reload()
 	if (effects.size()):
 		for effect in effects:
-			effect.action()
+			effect.action(G.battleController.BATTLE_EVENTS.START_UNIT)
 
 func isDeath():
-	return chrs[Сharacteristic.CHARACTERISTICS.HP] == 0
+	return chrs[Сharacteristic.CHARACTERISTICS.HP].value == 0
 			
 func action():
 	if (countMove > 0 || RandomNumberGenerator.new().randi_range(1,2) == 1):
@@ -59,9 +59,11 @@ func action():
 	if (countActions > 0):
 		countActions-=1
 		activeSpell()
-		
+			
 	if (countMove == 0 || countActions == 0):
 		G.battleController.nextUnit()
+		
+	print(countMove, countActions, '  countMove, countActions')	
 	
 func getActiveSpells(spell):	
 	return spell.isActive()
@@ -71,7 +73,8 @@ func activeSpell():
 	actionAI(activeSpells)
 
 func removeEffect(effect):
-	effects.remove_at()	
+#	effects.remove_at()	
+	pass
 	
 func actionAI(spells):
 	pass

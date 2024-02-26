@@ -4,7 +4,7 @@ class_name BattleController
 
 const BATTLE_EVENTS = {
 	'BEFORE_TAKING_DAMAGE': 'BEFORE_TAKING_DAMAGE',
-	'START': 'START',
+	'START_UNIT': 'START_UNIT',
 	'UNIT_DEATH': 'UNIT_DEATH',
 }
 
@@ -22,11 +22,11 @@ var currentCommandIndex = -1
 var enemyList = []
 var heroList = []
 var unitSideList = {
-	[BATTLE_SIDES.HERO]: {
+	'HERO': {
 		'live': [],
 		'death': []
 	},
-	[BATTLE_SIDES.ENEMY]: {
+	'ENEMY': {
 		'live': [],
 		'death': []
 	},
@@ -83,6 +83,7 @@ func haveActiveCommands():
 	for comm in commandList:
 		if (comm.isActive):
 			return true
+	return false
 
 func pushEvent(event):
 	for unit in unitList:
@@ -93,7 +94,7 @@ func pushEvent(event):
 func checkEndBattle():
 	for unit in unitList:
 		if (unit.side != BATTLE_SIDES.NEUTRAL):
-			if (unit.isDead):
+			if (unit.isDeath()):
 				unitSideList[unit.side].death.append(unit) 
 			else:
 				unitSideList[unit.side].live.append(unit)
@@ -125,12 +126,16 @@ func checkEndBattle():
 		
 func endBattle(sideWinner):
 	stop()
-	
+
+func moveUnit(obj):
+	pass
+
 #когда бой, если есть актив команд, то исполняем текущую
 #иначе текущий юнит(если он не в команде игрока) делает действие	
-func _process(del):
+func processBC():
 	if (isActive):
 		if (!checkEndBattle()):
+			print(haveActiveCommands(), '  haveActiveCommands()')
 			if (haveActiveCommands()):
 				var command = getCurrCommand()
 				if (command.isActive):

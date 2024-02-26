@@ -4,5 +4,6 @@ class_name AttackDouble
 
 func action(target):
 	super.action(target)
-	CommandAttack.new(creator, target, 1)
-	CommandAttack.new(creator, target, 1)
+	print('attack D spel')
+	G.battleController.commandList.append(CommandAttack.new(target, 1))
+	G.battleController.commandList.append(CommandAttack.new(target, 1))

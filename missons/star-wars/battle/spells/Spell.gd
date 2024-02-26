@@ -12,7 +12,6 @@ func _init(creator):
 
 func action(target):
 	currentReloadCount = reloadCount
-
 	self.target = target
 
 func reload():

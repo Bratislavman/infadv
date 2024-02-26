@@ -4,4 +4,5 @@ class_name Attack
 
 func action(target):
 	super.action(target)
-	CommandAttack.new(creator, target, 1)
+	print(' attack spel')
+	G.battleController.commandList.append(CommandAttack.new(target, 1))
