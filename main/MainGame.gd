@@ -17,10 +17,9 @@ func _ready():
 #	var config = ConfigFile.new()
 #	config.load(SAVE_PATH)
 #	x = config.get_value("player", "health" , 1)
-	print(battleController)
 	battleController.start([
-		Rex.new('Рекс 1', battleController.BATTLE_SIDES.HERO),
-		Rex.new('Рекс 2', battleController.BATTLE_SIDES.ENEMY),
+		Rex.new('Рекс I', battleController.BATTLE_SIDES.HERO),
+		Rex.new('Рекс II', battleController.BATTLE_SIDES.ENEMY),
 	])
 	
 func _process(_delta):

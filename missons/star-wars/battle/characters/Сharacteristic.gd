@@ -17,6 +17,6 @@ func _init(name, value):
 func minus(val):
 	var newVal = value - val
 	if newVal <= 0:
-		value = 1
+		value = 0
 	else:
 		value = newVal

@@ -10,15 +10,13 @@ func _init(target, dmg):
 	self.dmg = dmg
 
 func actionProcess():
-	print(target , !target.isDeath, 'target , !target.isDeath')	
 	if (target && !target.isDeath):
 		G.battleController.pushEvent(
 			G.battleController.BATTLE_EVENTS.BEFORE_TAKING_DAMAGE,
 		)
-	print(processBlock, 'processBlock spell attacj')	
 	if (!processBlock):
 		target.chrs.HP.minus(dmg)
-		isActive = false	
+		isActive = false
 		G.battleController.nextCommand()
 	else:
 		processBlock = false

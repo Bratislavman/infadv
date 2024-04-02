@@ -41,6 +41,8 @@ func chrsInit():
 	pass
 
 func start():
+	countMove = 1
+	countActions = 1
 	if (spells.size()):
 		for spell in spells:
 			spell.reload()
@@ -52,7 +54,7 @@ func isDeath():
 	return chrs[Сharacteristic.CHARACTERISTICS.HP].value == 0
 			
 func action():
-	if (countMove > 0 || RandomNumberGenerator.new().randi_range(1,2) == 1):
+	if (countMove > 0 && RandomNumberGenerator.new().randi_range(1,2) == 1):
 		countMove-=1
 		G.battleController.moveUnit(self)
 		
@@ -62,8 +64,6 @@ func action():
 			
 	if (countMove == 0 || countActions == 0):
 		G.battleController.nextUnit()
-		
-	print(countMove, countActions, '  countMove, countActions')	
 	
 func getActiveSpells(spell):	
 	return spell.isActive()

@@ -9,7 +9,6 @@ func _input(event):
 			if event.keycode == KEY_W:
 				var config = ConfigFile.new()
 				config.load(G.SAVE_PATH)
-				print(config.get_value("player", "health"))
 
 func _on_button_pressed():
 	var StarWarsType = load("res://missons/star-wars/StarWars.gd")

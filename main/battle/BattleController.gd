@@ -18,19 +18,10 @@ var isActive = false
 var unitList = []
 var commandList = []
 var currentUnitIndex = -1
-var currentCommandIndex = -1
+var currentCommandIndex = 0
 var enemyList = []
 var heroList = []
-var unitSideList = {
-	'HERO': {
-		'live': [],
-		'death': []
-	},
-	'ENEMY': {
-		'live': [],
-		'death': []
-	},
-}
+var unitSideList = null
 
 func start(units):
 	unitList = units
@@ -42,7 +33,7 @@ func stop():
 	unitList = []
 	commandList = []
 	currentUnitIndex = -1
-	currentCommandIndex = -1
+	currentCommandIndex = 0
 
 func getCurrUnit():
 	return unitList[currentUnitIndex]
@@ -75,9 +66,11 @@ func replaceCurrCommand(comm):
 	commandList.insert(currentCommandIndex, comm)
 
 func nextCommand():
+	var command = getCurrCommand()
+	command.isActive = false
 	var currIndex = currentCommandIndex + 1
-	if (currIndex < (commandList.size()-1)):
-		currentCommandIndex = currIndex	
+	if (currIndex <= (commandList.size()-1)):
+		currentCommandIndex = currIndex
 		
 func haveActiveCommands():
 	for comm in commandList:
@@ -92,8 +85,23 @@ func pushEvent(event):
 				efect.action(event)
 
 func checkEndBattle():
+	unitSideList = {
+		'HERO': {
+			'live': [],
+			'death': [],
+			'all': []
+		},
+		'ENEMY': {
+			'live': [],
+			'death': [],
+			'all': []
+		}
+	}
 	for unit in unitList:
+		print(unit.id, ' unit id//')
+		print(unit.chrs.HP.value, ' HP//')
 		if (unit.side != BATTLE_SIDES.NEUTRAL):
+			unitSideList[unit.side].all.append(unit)
 			if (unit.isDeath()):
 				unitSideList[unit.side].death.append(unit) 
 			else:
@@ -102,14 +110,14 @@ func checkEndBattle():
 	var enemyDeath = (
 		unitSideList[BATTLE_SIDES.HERO].death.size()
 		==
-		unitSideList[BATTLE_SIDES.HERO].live.size()
+		unitSideList[BATTLE_SIDES.HERO].all.size()
 	)	
 	var heroDeath = (
 		unitSideList[BATTLE_SIDES.ENEMY].death.size()
 		==
-		unitSideList[BATTLE_SIDES.ENEMY].live.size()
+		unitSideList[BATTLE_SIDES.ENEMY].all.size()
 	)
-	var allDeath = enemyDeath && heroDeath	
+	var allDeath = enemyDeath && heroDeath
 	
 	if (allDeath):
 		endBattle(BATTLE_SIDES.NEUTRAL)
@@ -125,6 +133,7 @@ func checkEndBattle():
 	return false	
 		
 func endBattle(sideWinner):
+	print(sideWinner, 'END///')
 	stop()
 
 func moveUnit(obj):
@@ -135,14 +144,15 @@ func moveUnit(obj):
 func processBC():
 	if (isActive):
 		if (!checkEndBattle()):
-			print(haveActiveCommands(), '  haveActiveCommands()')
 			if (haveActiveCommands()):
 				var command = getCurrCommand()
-				if (command.isActive):
+				if (command):
 					command.actionProcess()
 			else:
 				var unit = getCurrUnit()
-				if (unit.isDeath()):
-					nextUnit()
-				else:
-					unit.action()
+				if unit:
+					print(unit.chrs.HP.value, unit.id, ' hp')
+					if (unit.isDeath()):
+						nextUnit()
+					else:
+						unit.action()
