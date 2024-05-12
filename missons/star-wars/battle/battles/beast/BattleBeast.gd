@@ -1,5 +1,6 @@
 extends Node
 
+
 func test():
 	print('miss have')
 	

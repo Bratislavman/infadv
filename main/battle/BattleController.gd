@@ -9,43 +9,45 @@ const BATTLE_EVENTS = {
 }
 
 const BATTLE_SIDES = {
-	'HERO': 'HERO',
-	'ENEMY': 'ENEMY',
-	'NEUTRAL': 'NEUTRAL',
+	"HERO": 'HERO',
+	"ENEMY": 'ENEMY',
+	"NEUTRAL": 'NEUTRAL',
 }
+
 
 var isActive = false
 var unitList = []
-var commandList = []
-var currentUnitIndex = -1
-var currentCommandIndex = 0
-var enemyList = []
-var heroList = []
+var currentUnitIndex = 0
 var unitSideList = null
 
 func start(units):
 	unitList = units
-	nextUnit()
+	units[0].start()
 	isActive = true
 	
 func stop():
 	isActive = false	
 	unitList = []
-	commandList = []
-	currentUnitIndex = -1
-	currentCommandIndex = 0
+	currentUnitIndex = 0
 
 func getCurrUnit():
 	return unitList[currentUnitIndex]
+	
+func isCurrUnit(id):
+	var unit = getCurrUnit()
+	if (unit):
+		return unit.id == id
+	return false
 
 func nextUnit():
-	var currIndex = currentUnitIndex + 1
-	if (currIndex >= (unitList.size()-1)):
-		currIndex = 0
-	currentUnitIndex = currIndex
+	var nextIndex = currentUnitIndex + 1
+	if (nextIndex > (unitList.size()-1)):
+		nextIndex = 0
+	currentUnitIndex = nextIndex
 	var unit = getCurrUnit()
 	unit.start()
 
+#получение врага из противополож команды TO DO надо переелать на получ врагов чтоб поом по апи отбирать подходчщего
 func getEnemy(unit):
 	var side = ''
 	if (unit.side == BATTLE_SIDES.ENEMY):
@@ -56,35 +58,17 @@ func getEnemy(unit):
 		if (enemy.side == side):
 			return enemy
 
-func getCurrCommand():
-	return commandList[currentCommandIndex]
-	
-func getCurrCommandId():
-	return getCurrCommand().id
-	
-func replaceCurrCommand(comm):
-	commandList.insert(currentCommandIndex, comm)
-
-func nextCommand():
-	var command = getCurrCommand()
-	command.isActive = false
-	var currIndex = currentCommandIndex + 1
-	if (currIndex <= (commandList.size()-1)):
-		currentCommandIndex = currIndex
-		
-func haveActiveCommands():
-	for comm in commandList:
-		if (comm.isActive):
-			return true
-	return false
-
+#отправляемм событие всеэ эффектам юнтов для реакции
 func pushEvent(event):
 	for unit in unitList:
 		if (unit.efects.size()):
 			for efect in unit.efects:
 				efect.action(event)
+				
+func moveUnit(obj):
+	pass
 
-func checkEndBattle():
+func controllerEndBattle():
 	unitSideList = {
 		'HERO': {
 			'live': [],
@@ -98,8 +82,6 @@ func checkEndBattle():
 		}
 	}
 	for unit in unitList:
-		print(unit.id, ' unit id//')
-		print(unit.chrs.HP.value, ' HP//')
 		if (unit.side != BATTLE_SIDES.NEUTRAL):
 			unitSideList[unit.side].all.append(unit)
 			if (unit.isDeath()):
@@ -118,7 +100,7 @@ func checkEndBattle():
 		unitSideList[BATTLE_SIDES.ENEMY].all.size()
 	)
 	var allDeath = enemyDeath && heroDeath
-	
+
 	if (allDeath):
 		endBattle(BATTLE_SIDES.NEUTRAL)
 		return true
@@ -135,24 +117,7 @@ func checkEndBattle():
 func endBattle(sideWinner):
 	print(sideWinner, 'END///')
 	stop()
-
-func moveUnit(obj):
-	pass
-
-#когда бой, если есть актив команд, то исполняем текущую
-#иначе текущий юнит(если он не в команде игрока) делает действие	
-func processBC():
+						
+func action():
 	if (isActive):
-		if (!checkEndBattle()):
-			if (haveActiveCommands()):
-				var command = getCurrCommand()
-				if (command):
-					command.actionProcess()
-			else:
-				var unit = getCurrUnit()
-				if unit:
-					print(unit.chrs.HP.value, unit.id, ' hp')
-					if (unit.isDeath()):
-						nextUnit()
-					else:
-						unit.action()
+		controllerEndBattle()				

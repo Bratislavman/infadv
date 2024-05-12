@@ -1,7 +1,7 @@
-extends Spell
+extends SpellOneTarget
 
 class_name Attack
 
 func action(target):
 	super.action(target)
-	G.battleController.commandList.append(CommandAttack.new(target, 1))
+	caster.commandList.append(CommandAttack.new(caster, target, 1))

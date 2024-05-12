@@ -2,17 +2,12 @@ extends Node
 
 class_name Spell
 
-var creator = null
-var target = null
+var type = ''
 var reloadCount = 1
 var currentReloadCount = 0
-
-func _init(creator):
-	self.creator = creator
-
-func action(target):
+	
+func preSpellAction():
 	currentReloadCount = reloadCount
-	self.target = target
 
 func reload():
 	if (currentReloadCount > 0):
