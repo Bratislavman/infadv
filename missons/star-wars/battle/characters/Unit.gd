@@ -2,9 +2,10 @@ extends Node2D
  
 class_name Unit
 
-var animPlayer = null
-
 static var ids = 0
+
+var animPlayer = null
+var positionPlace = null
 
 var id = 0
 
@@ -16,18 +17,12 @@ var spells = []
 var effects = []
 var chrs = {}
 
-var positionPlace = null
-
 var countMove = 1
 var countActions = 1
 
 var commandList = []
-var currentCommandIndex = 0
 
-func _init(name = '', bio = "", side = ""):
-	self.title = name
-	self.bio = bio
-	self.side = side
+func _init():
 	Unit.ids += 1
 	id = Unit.ids
 	chrsInit() 
@@ -36,12 +31,16 @@ func _ready():
 	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play('stay')
 
+func actionAI(spells):
+	pass	
+
 func chrsInit():
-	#	chrs = {
-#		[Сharacteristic.CHARACTERISTICS.HP]: СharacteristicWithMax.new(Сharacteristic.CHARACTERISTICS.HP, hp),
-#		[Сharacteristic.CHARACTERISTICS.DMG]: Сharacteristic.new(Сharacteristic.CHARACTERISTICS.DMG, dmg),
-#	}
-	pass
+	var hpKey = Сharacteristic.CHARACTERISTICS.HP
+	var dmgKey = Сharacteristic.CHARACTERISTICS.DMG
+	chrs = {
+		hpKey: СharacteristicWithMax.new(Сharacteristic.CHARACTERISTICS.HP, 1),
+		dmgKey: Сharacteristic.new(Сharacteristic.CHARACTERISTICS.DMG, 1),
+	}
 
 func start():
 	countMove = 1
@@ -84,8 +83,7 @@ func damage(dmg):
 	if isDeath():
 		playAnim('death')
 
-func actionAI(spells):
-	pass
+
 
 func getCurrCommand():
 	if (commandList.size()):

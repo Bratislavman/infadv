@@ -18,3 +18,4 @@ config/icon="res://main/icon.svg"
 [autoload]
 
 G="*res://main/MainGame.gd"
+Dark="*res://main/Dark.tscn"

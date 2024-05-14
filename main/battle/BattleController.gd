@@ -14,7 +14,6 @@ const BATTLE_SIDES = {
 	"NEUTRAL": 'NEUTRAL',
 }
 
-
 var isActive = false
 var unitList = []
 var currentUnitIndex = 0

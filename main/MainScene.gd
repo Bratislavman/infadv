@@ -13,18 +13,10 @@ func _input(event):
 				config.load(G.SAVE_PATH)
 
 func _on_button_pressed():
-	var StarWarsType = load("res://missons/star-wars/StarWars.gd")
-	G.mission = StarWarsType.new()
-	get_tree().change_scene_to_file("res://main/battle/Field.tscn")
+	var missionClass = preload("res://missons/star-wars/StarWars.gd")
+	G.mission = missionClass.new()
 
-	# var mob = RexSc.instantiate()
-	
-	# G.battleController.start([
-	# 	Rex.new('Рекс I', G.battleController.BATTLE_SIDES.HERO),
-	# 	Rex.new('Рекс II', G.battleController.BATTLE_SIDES.ENEMY),
-	# ])
-	
-	# G.battleController.start([
-	# 	Rex.new('Рекс I', G.battleController.BATTLE_SIDES.HERO),
-	# 	Rex.new('Рекс II', G.battleController.BATTLE_SIDES.ENEMY),
-	# ])
+	var battleClass = preload("res://missons/star-wars/battle/battles/beast/BattleBeast.gd")
+	G.mission = battleClass.new()
+
+	get_tree().change_scene_to_file("res://main/battle/Field.tscn")
