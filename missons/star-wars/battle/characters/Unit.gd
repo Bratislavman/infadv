@@ -11,6 +11,9 @@ var id = 0
 
 var side = ''
 
+var x = 0
+var y = 0
+
 var title = ""
 var bio = ""
 var spells = []
@@ -84,7 +87,6 @@ func damage(dmg):
 		playAnim('death')
 
 
-
 func getCurrCommand():
 	if (commandList.size()):
 		return commandList[0]
@@ -97,6 +99,7 @@ func removeCommand(id):
 			if comm.id == id:	
 				commandList.remove_at(index)
 				return
+	return null
 	
 func playAnim(anim):
 	animPlayer.play(anim)
@@ -107,6 +110,7 @@ func effAnim(eff):
 		var currComm = getCurrCommand()
 		if currComm as CommandCast:
 			currComm.action()
+
 
 func _on_animation_player_animation_finished(_anim_name):
 	var currComm = getCurrCommand()

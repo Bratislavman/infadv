@@ -9,44 +9,71 @@ position = Vector2(57, 338)
 script = ExtResource("1_58okn")
 
 [node name="Cell3_2Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(55, 138)
+position = Vector2(63, 166)
+x = 2
+y = 3
+side = "HERO"
+metadata/index = 1
 
 [node name="Cell3_1Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(-38, 138)
+position = Vector2(-9, 166)
+y = 3
+side = "HERO"
 
 [node name="Cell1_1Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
 position = Vector2(12, 35)
+side = "HERO"
 
 [node name="Cell1_2Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
 position = Vector2(103, 36)
+x = 2
+side = "HERO"
 
 [node name="Cell3_3Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(141, 142)
+position = Vector2(143, 166)
+x = 3
+y = 3
+side = "HERO"
 
 [node name="Cell1_3Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
 position = Vector2(199, 38)
+x = 3
+side = "HERO"
 
 [node name="Cell3_1Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(366, 141)
+position = Vector2(375, 158)
+y = 3
+side = "ENEMY"
 
 [node name="Cell3_3Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(541, 142)
+position = Vector2(535, 166)
+x = 3
+y = 3
+side = "ENEMY"
 
 [node name="Cell1_1Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(276, 38)
+position = Vector2(327, 38)
+side = "ENEMY"
 
 [node name="Cell1_2Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(362, 39)
+position = Vector2(407, 38)
+x = 2
+side = "ENEMY"
 
 [node name="Cell3_2Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(452, 142)
+position = Vector2(455, 166)
+x = 2
+y = 3
+side = "ENEMY"
 
 [node name="Cell1_3Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(453, 40)
+position = Vector2(479, 46)
+x = 3
+side = "ENEMY"
 
 [node name="bg" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(-57, -337)
+position = Vector2(-57, -336)
 scale = Vector2(0.172381, 0.205599)
 texture = ExtResource("3_2ht6r")
 centered = false
@@ -57,19 +84,41 @@ scale = Vector2(1.12826, 1.54199)
 zoom = Vector2(1.74, 1.21)
 
 [node name="Cell2_1Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(-11, 86)
+position = Vector2(-16, 102)
+y = 2
+side = "HERO"
 
 [node name="Cell2_2Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(80, 87)
+position = Vector2(79, 102)
+x = 2
+y = 2
+side = "HERO"
 
 [node name="Cell2_3Hero" parent="." groups=["all", "hero"] instance=ExtResource("1_wfwlx")]
-position = Vector2(167, 88)
+position = Vector2(167, 102)
+x = 3
+y = 2
+side = "HERO"
 
 [node name="Cell2_1Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
-position = Vector2(317, 94)
+position = Vector2(335, 94)
+y = 2
+side = "ENEMY"
 
 [node name="Cell2_2Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
 position = Vector2(408, 95)
+x = 2
+y = 2
+side = "ENEMY"
 
 [node name="Cell2_3Enemy" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
 position = Vector2(499, 96)
+x = 3
+y = 2
+side = "ENEMY"
+
+[node name="CellSpec" parent="." groups=["all", "enemy"] instance=ExtResource("1_wfwlx")]
+position = Vector2(255, 158)
+x = 0
+y = 0
+side = "NEUTRAL"

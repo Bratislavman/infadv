@@ -11,7 +11,7 @@ func _init():
 
 #тут будет иниц спел и всё что ему нужно
 func actionAI(activeSpells):
-	var enemy = G.battleController.getEnemy(self)
+	var enemy = G.battleController.getEnemyList(self)[0]
 	var activeSpelf = activeSpells.pick_random()
 	if (activeSpelf is SpellOneTarget):
 		activeSpelf.action(enemy)

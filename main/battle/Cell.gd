@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var x = 1
+@export var y = 1
+@export var side = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

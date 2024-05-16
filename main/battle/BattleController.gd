@@ -46,16 +46,19 @@ func nextUnit():
 	var unit = getCurrUnit()
 	unit.start()
 
-#получение врага из противополож команды TO DO надо переелать на получ врагов чтоб поом по апи отбирать подходчщего
-func getEnemy(unit):
+func getEnemyList(unit):
+	var list = []
 	var side = ''
 	if (unit.side == BATTLE_SIDES.ENEMY):
 		side =  BATTLE_SIDES.HERO
 	if (unit.side == BATTLE_SIDES.HERO):
 		side =  BATTLE_SIDES.ENEMY
+	if (unit.side == BATTLE_SIDES.NEUTRAL):
+		side = [BATTLE_SIDES.HERO, BATTLE_SIDES.ENEMY].pick_random()
 	for enemy in unitList:
 		if (enemy.side == side):
-			return enemy
+			list.append(enemy)
+	return list
 
 #отправляемм событие всеэ эффектам юнтов для реакции
 func pushEvent(event):
