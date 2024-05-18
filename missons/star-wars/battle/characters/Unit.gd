@@ -1,18 +1,16 @@
-extends Node2D
+extends CharacterBody2D
  
 class_name Unit
 
 static var ids = 0
 
-var animPlayer = null
-var positionPlace = null
+@onready var animPlayer = $AnimationPlayer
+@onready var sprite = $Sprite2D
+var movePos = null
 
 var id = 0
 
 var side = ''
-
-var x = 0
-var y = 0
 
 var title = ""
 var bio = ""
@@ -31,10 +29,9 @@ func _init():
 	chrsInit() 
 	
 func _ready():
-	animPlayer = get_node("Sprite2D/AnimationPlayer")
 	animPlayer.play('stay')
 
-func actionAI(spells):
+func activeSpellAI(_spells):
 	pass	
 
 func chrsInit():
@@ -57,17 +54,26 @@ func start():
 
 func isDeath():
 	return chrs[Сharacteristic.CHARACTERISTICS.HP].value == 0
+
+func isLive():
+	return !isDeath()
 			
-func action():
-	# if (countMove > 0 && RandomNumberGenerator.new().randi_range(1,2) == 1):
-	# 	countMove-=1
-	# 	G.battleController.moveUnit(self)
+func actionAI():
+	var freeCell = G.battleField.getFreeCell(self)
+
+	var wishMove = RandomNumberGenerator.new().randi_range(1,2) == 1
+	if freeCell && countMove > 0 && wishMove:
+		countMove-=1
+		movePos = freeCell.position
+		commandList.append(CommandMove.new(self))
+		return
 
 	if (countActions > 0):
-		countActions-=1
-		activeSpell()
+			countActions-=1
+			activeSpell()
+			return
 			
-	if (commandList.size() == 0 && (countMove == 0 || countActions == 0)):
+	if (countActions == 0 && (countMove == 0 || freeCell == null || !wishMove)):
 		G.battleController.nextUnit()
 	
 func checkActiveSpell(spell):	
@@ -75,7 +81,7 @@ func checkActiveSpell(spell):
 		
 func activeSpell():
 	var activeSpells = spells.filter(checkActiveSpell)
-	actionAI(activeSpells)
+	activeSpellAI(activeSpells)
 
 func removeEffect(effect):
 #	effects.remove_at()	
@@ -85,7 +91,8 @@ func damage(dmg):
 	chrs.HP.minus(dmg)
 	if isDeath():
 		playAnim('death')
-
+		if G.battleController.isCurrUnit(id):
+			G.battleController.nextUnit()
 
 func getCurrCommand():
 	if (commandList.size()):
@@ -105,28 +112,47 @@ func playAnim(anim):
 	animPlayer.play(anim)
 
 func effAnim(eff):
-	# момент применения эффекта спела в анимке атаки персонажа
 	if (eff): 
 		var currComm = getCurrCommand()
-		if currComm as CommandCast:
-			currComm.action()
+		if currComm as CommandCast && currComm.animationFunc:
+			currComm.animationFunc.call()
 
+func canAction():
+	var isActive = G.battleController.isActive
+	return isActive && isLive() && getCurrCommand() == null && G.battleController.isCurrUnit(id)
+
+# направление и перемещение персонажа в зав-ти от его стороны или цели-позиции
+func moveAndDirection():
+	var currComm = getCurrCommand()
+	if (currComm as CommandMove) && movePos:
+		velocity = position.direction_to(movePos) * 200
+		if  position.distance_to(movePos) > 3:
+			move_and_slide()
+			if movePos.x > position.x:
+				sprite.scale.x = 1
+			else:
+				sprite.scale.x = -1
+		else:
+			movePos = null
+			removeCommand(currComm.id)
+			animPlayer.play('stay')
+	else:	
+		if (side == G.battleController.BATTLE_SIDES.ENEMY):
+			sprite.scale.x = -1
+		else:
+			sprite.scale.x = 1
 
 func _on_animation_player_animation_finished(_anim_name):
 	var currComm = getCurrCommand()
 	if currComm as CommandCast:
 		currComm.endAnimation()
 
-	if (!isDeath()):
+	if (isLive()):
 		animPlayer.play('stay')
 
 func _process(_delta):
-	if G.battleController.isActive:
-		if (getCurrCommand() == null):
-			if G.battleController.isCurrUnit(id):
-				if (isDeath()):
-					print(999)
-					animPlayer.play('death')
-					G.battleController.nextUnit()
-				else:
-					action()
+	if canAction():
+		actionAI()
+
+func _physics_process(_delta):
+	moveAndDirection()

@@ -1,10 +1,12 @@
 extends CommandParent
-#команда проигрыша анимки спела и дейстие после этого
+#команда проигрыша анимки спела и действие в конкретный момент анимки
 class_name CommandCast
 
 var caster = null
 var target = null
 var animationName = ''
+# animationFunc вызывается в effAnim у юнита
+# применяется во время конкретного кадра анимки персонажа
 var animationFunc = null
 var phase = 0
 
@@ -15,10 +17,6 @@ func _init(caster, target, animationName, animationFunc):
 	self.animationName = animationName
 	self.animationFunc = animationFunc
 	caster.playAnim(animationName)
-
-#когда анимация юнита дошла до момента экшена, совершаем действие
-func action():
-	animationFunc.call()
 
 #когда анимация завершилась, убиваем команду
 func endAnimation():

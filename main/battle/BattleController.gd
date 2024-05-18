@@ -60,15 +60,12 @@ func getEnemyList(unit):
 			list.append(enemy)
 	return list
 
-#отправляемм событие всеэ эффектам юнтов для реакции
+#отправляемм событие всех эффектам юнтов для реакции
 func pushEvent(event):
 	for unit in unitList:
 		if (unit.efects.size()):
 			for efect in unit.efects:
 				efect.action(event)
-				
-func moveUnit(obj):
-	pass
 
 func controllerEndBattle():
 	unitSideList = {
@@ -117,7 +114,6 @@ func controllerEndBattle():
 	return false	
 		
 func endBattle(sideWinner):
-	print(sideWinner, 'END///')
 	stop()
 						
 func action():
