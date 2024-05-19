@@ -2,13 +2,11 @@ extends CommandParent
 #команда проигрыша анимки спела и действие в конкретный момент анимки
 class_name CommandCast
 
-var caster = null
 var target = null
 var animationName = ''
 # animationFunc вызывается в effAnim у юнита
 # применяется во время конкретного кадра анимки персонажа
 var animationFunc = null
-var phase = 0
 
 func _init(caster, target, animationName, animationFunc):
 	super._init()

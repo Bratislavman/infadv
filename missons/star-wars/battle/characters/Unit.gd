@@ -30,6 +30,7 @@ func _init():
 	
 func _ready():
 	animPlayer.play('stay')
+	sprite.material.set_shader_parameter('block_size', 0)
 
 func activeSpellAI(_spells):
 	pass	
@@ -151,8 +152,12 @@ func _on_animation_player_animation_finished(_anim_name):
 		animPlayer.play('stay')
 
 func _process(_delta):
-	if canAction():
-		actionAI()
+	var currComm = getCurrCommand()
+	if currComm:
+		currComm.action()
+	else:
+		if canAction():
+			actionAI()
 
 func _physics_process(_delta):
 	moveAndDirection()
