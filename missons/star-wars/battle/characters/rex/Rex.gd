@@ -5,7 +5,7 @@ class_name Rex
 func _init():
 	super._init()
 	title = 'Рекс'
-	spells = [Attack.new(self)]
+	spells = [Attack.new(self), SpellTelekines.new(self)]
 #	self.effects = [Counterattack.new(self)]
 	chrs[Сharacteristic.CHARACTERISTICS.HP].value = 10
 

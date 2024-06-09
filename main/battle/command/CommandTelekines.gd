@@ -1,10 +1,12 @@
-extends CommandCast
+extends CommandParent
 
 class_name CommandTelekines
 
-func _init(caster, target, dmg):
-	var spell = func():
-		if (target):
-			target.damage(dmg)
+func _init(caster):
+	super._init()
+	self.caster = caster
+	caster.playAnim('stand')
+	caster.showShaderBlue()
 
-	super._init(caster, target, 'spell', spell)
+func endMove():
+	caster.showShaderBlue()

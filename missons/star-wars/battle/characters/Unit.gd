@@ -23,6 +23,8 @@ var countActions = 1
 
 var commandList = []
 
+var cell = null
+
 func _init():
 	Unit.ids += 1
 	id = Unit.ids
@@ -30,7 +32,14 @@ func _init():
 	
 func _ready():
 	animPlayer.play('stay')
-	sprite.material.set_shader_parameter('block_size', 0)
+	hideShaderBlue()
+
+# это шейдер свечения похожего на пламя
+func showShaderBlue():
+	sprite.material.set_shader_parameter('block_size', 2)	
+
+func hideShaderBlue():
+	sprite.material.set_shader_parameter('block_size', 0)	
 
 func activeSpellAI(_spells):
 	pass	
@@ -65,7 +74,9 @@ func actionAI():
 	var wishMove = RandomNumberGenerator.new().randi_range(1,2) == 1
 	if freeCell && countMove > 0 && wishMove:
 		countMove-=1
-		movePos = freeCell.position
+		cell.unit = null
+		cell = freeCell
+		movePos = cell.position
 		commandList.append(CommandMove.new(self))
 		return
 
@@ -125,15 +136,19 @@ func canAction():
 # направление и перемещение персонажа в зав-ти от его стороны или цели-позиции
 func moveAndDirection():
 	var currComm = getCurrCommand()
-	if (currComm as CommandMove) && movePos:
+	var currCommIsMove = (currComm as CommandMove) || (currComm as CommandTelekines)
+	if currCommIsMove && movePos:
 		velocity = position.direction_to(movePos) * 200
 		if  position.distance_to(movePos) > 3:
 			move_and_slide()
-			if movePos.x > position.x:
-				sprite.scale.x = 1
-			else:
-				sprite.scale.x = -1
+			if (currComm as CommandMove):
+				if movePos.x > position.x:
+					sprite.scale.x = 1
+				else:
+					sprite.scale.x = -1
 		else:
+			if (currComm as CommandTelekines):
+				currComm.endMove()
 			movePos = null
 			removeCommand(currComm.id)
 			animPlayer.play('stay')

@@ -1,7 +1,12 @@
 extends SpellOneTarget
 
-class_name Attack
+class_name SpellTelekines
 
 func action(target):
 	super.action(target)
-	caster.commandList.append(CommandTelekines.new(caster, target, 1))
+	var freeCell = G.battleField.getFreeCell(self)
+	if (freeCell):
+		caster.cell.unit = null
+		caster.cell = freeCell
+		unit.movePos = cell.position
+		caster.commandList.append(CommandTelekines.new(caster))
