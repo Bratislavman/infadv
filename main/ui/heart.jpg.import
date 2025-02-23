@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvghystgv55yv"
-path="res://.godot/imported/Rex.png-8e21c342b7ad5adba5040552215ea6f8.ctex"
+uid="uid://c7ofjdhmgawbw"
+path="res://.godot/imported/heart.jpg-550eedc281ba932ca3325cb57e426150.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://missons/star-wars/battle/characters/rex/Rex.png"
-dest_files=["res://.godot/imported/Rex.png-8e21c342b7ad5adba5040552215ea6f8.ctex"]
+source_file="res://main/ui/heart.jpg"
+dest_files=["res://.godot/imported/heart.jpg-550eedc281ba932ca3325cb57e426150.ctex"]
 
 [params]
 

@@ -1,18 +1,15 @@
-extends Node2D
+extends TextureButton
 
-@export var x = 1
-@export var y = 1
-@export var side = ''
-
-var unit = null
+@export var resource: Resource
+@export var number: int
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass # Replace with function body.
+	
+	texture_normal = resource
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	pass
-	
-func chc():
-	get_node("rect").color = 'red'

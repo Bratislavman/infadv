@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bw5wu7oc2blsy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ks17n"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+shadow_size = 14
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_ks17n")

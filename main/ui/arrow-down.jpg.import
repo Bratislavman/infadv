@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxqe535m4jp7m"
-path="res://.godot/imported/bg.jpg-c89ad574069bf0185392266495967526.ctex"
+uid="uid://b0br3u61c4b3c"
+path="res://.godot/imported/arrow-down.jpg-767d044f43533deb570a05256a1153f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://missons/star-wars/battle/battles/beast/bg.jpg"
-dest_files=["res://.godot/imported/bg.jpg-c89ad574069bf0185392266495967526.ctex"]
+source_file="res://main/ui/arrow-down.jpg"
+dest_files=["res://.godot/imported/arrow-down.jpg-767d044f43533deb570a05256a1153f1.ctex"]
 
 [params]
 

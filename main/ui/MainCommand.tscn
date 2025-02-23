@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo3vd7ab1tenm"]
+
+[ext_resource type="Texture2D" uid="uid://d1qsgyruwqsg6" path="res://main/ui/fast.jpg" id="1_4xwrn"]
+[ext_resource type="Theme" uid="uid://bw5wu7oc2blsy" path="res://btn.tres" id="1_s1dd2"]
+[ext_resource type="Texture2D" uid="uid://b0br3u61c4b3c" path="res://main/ui/arrow-down.jpg" id="2_mhead"]
+[ext_resource type="Script" path="res://main/ui/MainCommandIcon.gd" id="2_qiuqa"]
+[ext_resource type="Texture2D" uid="uid://53woqsjtoifk" path="res://main/ui/arrow-up.jpg" id="3_3xkpl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ylff1"]
+
+[sub_resource type="Theme" id="Theme_x4q5b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p3m1i"]
+
+[node name="MainCommand" type="TextureButton"]
+theme = ExtResource("1_s1dd2")
+texture_normal = ExtResource("1_4xwrn")
+script = ExtResource("2_qiuqa")
+resource = ExtResource("1_4xwrn")
+
+[node name="Up1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 12.0534
+offset_top = 1.2536
+offset_right = 103.053
+offset_bottom = 98.2536
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("3_3xkpl")
+
+[node name="Up2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 23.0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 98.0
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("3_3xkpl")
+
+[node name="Up3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 0.793391
+offset_top = 1.48127
+offset_right = 91.7934
+offset_bottom = 98.4813
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("3_3xkpl")
+
+[node name="Down1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 114.0
+offset_bottom = 120.0
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("2_mhead")
+
+[node name="Down2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 12.0
+offset_top = 23.0
+offset_right = 103.0
+offset_bottom = 120.0
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("2_mhead")
+
+[node name="Down3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.682353)
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 92.0
+offset_bottom = 120.0
+scale = Vector2(0.114165, 0.113832)
+texture = ExtResource("2_mhead")
+
+[node name="Dark" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.803922)
+z_index = 1
+material = SubResource("CanvasItemMaterial_ylff1")
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 35.0
+theme = SubResource("Theme_x4q5b")
+texture = SubResource("ViewportTexture_p3m1i")

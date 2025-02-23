@@ -64,11 +64,11 @@ func _ready():
 	cellListEnemy = get_tree().get_nodes_in_group('enemy')
 	cellListHero = get_tree().get_nodes_in_group('hero')
 
-	get_node("bg").texture = preload('res://missons/star-wars/battle/battles/beast/bg.jpg')
+	#get_node("bg").texture = preload('res://missons/star-wars/battle/battles/beast/bg.jpg')
+#
+	#var rexScene = preload('res://missons/star-wars/battle/characters/rex/Rex.tscn')
 
-	var rexScene = preload('res://missons/star-wars/battle/characters/rex/Rex.tscn')
-
-	var npc1 = createUnit(rexScene, 3, 2, G.battleController.BATTLE_SIDES.HERO)
-	var npc2 = createUnit(rexScene, 1, 2, G.battleController.BATTLE_SIDES.ENEMY)
-
-	G.battleController.start([npc1, npc2])
+	#var npc1 = createUnit(rexScene, 3, 2, G.battleController.BATTLE_SIDES.HERO)
+	#var npc2 = createUnit(rexScene, 1, 2, G.battleController.BATTLE_SIDES.ENEMY)
+#
+	#G.battleController.start([npc1, npc2])
