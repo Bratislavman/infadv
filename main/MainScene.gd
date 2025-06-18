@@ -13,8 +13,8 @@ func _input(event):
 				config.load(G.SAVE_PATH)
 
 func _on_button_pressed():
-	var missionClass = preload("res://missons/star-wars/StarWars.gd")
-	G.mission = missionClass.new()
+	# var missionClass = preload("res://missons/star-wars/StarWars.gd")
+	# G.mission = missionClass.new()
 
 	var battleClass = preload("res://missons/star-wars/battle/battles/beast/BattleBeast.gd")
 	G.mission = battleClass.new()

@@ -20,6 +20,7 @@ resource = ExtResource("1_4xwrn")
 
 [node name="Up1" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 12.0534
 offset_top = 1.2536
 offset_right = 103.053
@@ -29,6 +30,7 @@ texture = ExtResource("3_3xkpl")
 
 [node name="Up2" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 23.0
 offset_top = 1.0
 offset_right = 114.0
@@ -38,6 +40,7 @@ texture = ExtResource("3_3xkpl")
 
 [node name="Up3" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 0.793391
 offset_top = 1.48127
 offset_right = 91.7934
@@ -47,6 +50,7 @@ texture = ExtResource("3_3xkpl")
 
 [node name="Down1" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 23.0
 offset_top = 23.0
 offset_right = 114.0
@@ -56,6 +60,7 @@ texture = ExtResource("2_mhead")
 
 [node name="Down2" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 12.0
 offset_top = 23.0
 offset_right = 103.0
@@ -65,6 +70,7 @@ texture = ExtResource("2_mhead")
 
 [node name="Down3" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 0
 offset_left = 1.0
 offset_top = 23.0
 offset_right = 92.0
