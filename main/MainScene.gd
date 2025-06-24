@@ -1,6 +1,6 @@
 extends Node
 
-var RexSc = preload("res://missons/star-wars/battle/characters/rex/Rex.tscn")
+# var RexSc = preload("res://missons/star-wars/battle/characters/rex/Rex.tscn")
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -16,7 +16,7 @@ func _on_button_pressed():
 	# var missionClass = preload("res://missons/star-wars/StarWars.gd")
 	# G.mission = missionClass.new()
 
-	var battleClass = preload("res://missons/star-wars/battle/battles/beast/BattleBeast.gd")
-	G.mission = battleClass.new()
+	# var battleClass = preload("res://missons/star-wars/battle/battles/beast/BattleBeast.gd")
+	# G.mission = battleClass.new()
 
 	get_tree().change_scene_to_file("res://main/battle/Field.tscn")

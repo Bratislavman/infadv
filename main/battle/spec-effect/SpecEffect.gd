@@ -21,4 +21,3 @@ func ends():
 
 func action(event):
 	effectAction(event)
-
