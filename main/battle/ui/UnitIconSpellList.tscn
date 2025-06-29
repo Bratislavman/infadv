@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4kntplouiqwk"]
+
+[ext_resource type="PackedScene" uid="uid://bjh6epsmlyo06" path="res://main/battle/ui/UnitIconSpell.tscn" id="1_jw56m"]
+
+[node name="UnitIconSpell" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 614.0
+offset_bottom = 108.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="UnitIconSpell" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell3" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell4" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell5" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell6" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell7" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="UnitIconSpell8" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_jw56m")]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2

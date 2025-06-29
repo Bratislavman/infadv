@@ -1,35 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://l2inm5hwj17x"]
+[gd_scene load_steps=9 format=3 uid="uid://l2inm5hwj17x"]
 
 [ext_resource type="Script" path="res://main/battle/Field.gd" id="1_58okn"]
-[ext_resource type="Texture2D" uid="uid://caao2rxyul2vw" path="res://main/ui/sword.jpg" id="2_pymh0"]
-[ext_resource type="Texture2D" uid="uid://bu6gupriwjv8l" path="res://main/ui/shield.jpg" id="3_jr1vn"]
-[ext_resource type="Texture2D" uid="uid://c7ofjdhmgawbw" path="res://main/ui/heart.jpg" id="4_1rd7s"]
-[ext_resource type="PackedScene" uid="uid://bo3vd7ab1tenm" path="res://main/ui/MainCommand.tscn" id="6_hldb6"]
-[ext_resource type="Theme" uid="uid://bw5wu7oc2blsy" path="res://btn.tres" id="6_sxfkq"]
+[ext_resource type="Texture2D" uid="uid://cu4kv35ymocbs" path="res://main/battle/bg/gateway.jpg" id="2_bdms5"]
+[ext_resource type="PackedScene" uid="uid://uslnnt18s30q" path="res://main/battle/ui/UnitIconList.tscn" id="3_ho4x0"]
+[ext_resource type="PackedScene" uid="uid://c4kntplouiqwk" path="res://main/battle/ui/UnitIconSpellList.tscn" id="4_wqsxx"]
+[ext_resource type="Texture2D" uid="uid://dr72xu80eqoi0" path="res://main/units/rex/rex.jpg" id="5_b2my3"]
+[ext_resource type="Texture2D" uid="uid://cx2a8faltfco2" path="res://main/ui/icons/settings.jpg" id="6_6bpbx"]
 
-[sub_resource type="Theme" id="Theme_q3jl3"]
+[sub_resource type="Theme" id="Theme_q3jb4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2wt8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjksp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jol43"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2lqxu"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_b0ol4"]
 
 [node name="Field" type="Node2D"]
 script = ExtResource("1_58okn")
 
 [node name="BG" type="Sprite2D" parent="."]
+visible = false
 show_behind_parent = true
-position = Vector2(333, 267)
-scale = Vector2(0.172381, 0.205599)
+position = Vector2(576, 326)
+scale = Vector2(1.56522, 1.79292)
+texture = ExtResource("2_bdms5")
 
 [node name="HeroPos" type="Button" parent="."]
-offset_left = 267.0
-offset_top = 483.0
-offset_right = 284.0
-offset_bottom = 514.0
+offset_left = 129.0
+offset_top = 508.0
+offset_right = 146.0
+offset_bottom = 539.0
 theme_type_variation = &"FlatButton"
 text = "x"
 
@@ -41,94 +37,40 @@ offset_bottom = 511.0
 theme_type_variation = &"FlatButton"
 text = "x"
 
-[node name="HeroLife" type="ProgressBar" parent="."]
-offset_left = 34.0
-offset_top = 39.0
-offset_right = 419.0
-offset_bottom = 66.0
-
-[node name="EnemyLife" type="ProgressBar" parent="."]
-offset_left = 708.0
-offset_top = 39.0
-offset_right = 1093.0
-offset_bottom = 66.0
-
-[node name="EnemyName2" type="LineEdit" parent="."]
-offset_left = 709.0
-offset_top = 9.0
-offset_right = 1087.0
-offset_bottom = 40.0
-theme = SubResource("Theme_q3jl3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a2wt8")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_wjksp")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jol43")
-text = "vbvb"
-alignment = 2
-
-[node name="EnemyName3" type="LineEdit" parent="."]
-offset_left = 38.0
-offset_top = 6.0
-offset_right = 411.0
-offset_bottom = 38.0
-theme = SubResource("Theme_q3jl3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a2wt8")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_wjksp")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_jol43")
-text = "vbvb"
-
-[node name="MainCommands" type="ScrollContainer" parent="."]
-z_index = 1
-offset_left = 246.0
-offset_top = 561.0
-offset_right = 400.0
-offset_bottom = 613.0
-scale = Vector2(1.2716, 1.36318)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainCommands"]
-layout_mode = 2
-
-[node name="CommandAttack" parent="MainCommands/HBoxContainer" instance=ExtResource("6_hldb6")]
-layout_mode = 2
-resource = ExtResource("2_pymh0")
-
-[node name="CommandShield" parent="MainCommands/HBoxContainer" instance=ExtResource("6_hldb6")]
-layout_mode = 2
-resource = ExtResource("3_jr1vn")
-
-[node name="CommandHeart" parent="MainCommands/HBoxContainer" instance=ExtResource("6_hldb6")]
-layout_mode = 2
-resource = ExtResource("4_1rd7s")
-
-[node name="CommandDodge" parent="MainCommands/HBoxContainer" instance=ExtResource("6_hldb6")]
-layout_mode = 2
-
-[node name="Attack" type="Button" parent="."]
-offset_left = 699.0
-offset_top = 537.0
-offset_right = 862.0
-offset_bottom = 625.0
-theme = ExtResource("6_sxfkq")
-theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 30
-text = "Атака"
-
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 231.0
-offset_top = 542.0
-offset_right = 456.0
-offset_bottom = 626.0
-texture = SubResource("CanvasTexture_2lqxu")
+modulate = Color(0, 0, 0, 0.407843)
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 508.0
+offset_bottom = 133.0
+scale = Vector2(0.943317, 0.650419)
+theme = SubResource("Theme_q3jb4")
+texture = SubResource("CanvasTexture_b0ol4")
+
+[node name="UnitIconSpell" parent="." instance=ExtResource("4_wqsxx")]
+offset_left = 89.0
+offset_top = 26.0
+offset_right = 89.0
+offset_bottom = 26.0
+
+[node name="Hero" type="Sprite2D" parent="."]
+position = Vector2(44, 49)
+texture = ExtResource("5_b2my3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 481.0
-offset_top = 530.0
-offset_right = 673.0
-offset_bottom = 632.0
-texture = SubResource("CanvasTexture_2lqxu")
+modulate = Color(0, 0, 0, 0.407843)
+offset_left = 592.0
+offset_top = 8.0
+offset_right = 972.0
+offset_bottom = 133.0
+scale = Vector2(0.943317, 0.650419)
+theme = SubResource("Theme_q3jb4")
+texture = SubResource("CanvasTexture_b0ol4")
 
-[node name="SpecCommands" type="GridContainer" parent="."]
-offset_left = 499.0
-offset_top = 545.0
-offset_right = 651.0
-offset_bottom = 627.0
-columns = 4
+[node name="UnitIconList" parent="." instance=ExtResource("3_ho4x0")]
+position = Vector2(606, 25)
+
+[node name="Hero2" type="Sprite2D" parent="."]
+position = Vector2(1102, 50.5)
+scale = Vector2(1.42308, 1.48077)
+texture = ExtResource("6_6bpbx")
