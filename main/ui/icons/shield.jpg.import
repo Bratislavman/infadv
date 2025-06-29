@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8vdyflf6ixnd"
-valid=false
+uid="uid://c05ofepvwd0pa"
+path="res://.godot/imported/shield.jpg-08465a01b28cfaf1d071fc941310fa55.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/shield.jpg"
+dest_files=["res://.godot/imported/shield.jpg-08465a01b28cfaf1d071fc941310fa55.ctex"]
 
 [params]
 

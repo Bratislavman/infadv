@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwcayxhyyf4uh"
-valid=false
+uid="uid://cbc2c83r76hjd"
+path="res://.godot/imported/blaster.jpg-fe24c976f004f5281185ea3fd4d42903.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/blaster.jpg"
+dest_files=["res://.godot/imported/blaster.jpg-fe24c976f004f5281185ea3fd4d42903.ctex"]
 
 [params]
 

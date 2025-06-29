@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duribfcwuu32e"
-valid=false
+uid="uid://4pgdu1dir52i"
+path="res://.godot/imported/berserk.jpg-7f57d77ffcc3fb334d88b8a745dee0dd.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/berserk.jpg"
+dest_files=["res://.godot/imported/berserk.jpg-7f57d77ffcc3fb334d88b8a745dee0dd.ctex"]
 
 [params]
 

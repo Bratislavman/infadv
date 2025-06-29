@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3l8xi5lpwdxm"
-valid=false
+uid="uid://sytpi4jwmv0g"
+path="res://.godot/imported/heal.jpg-0fcf18636a733a401efe7e7e81e24b1f.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/heal.jpg"
+dest_files=["res://.godot/imported/heal.jpg-0fcf18636a733a401efe7e7e81e24b1f.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwobx3sfn453y"
-valid=false
+uid="uid://1p07bk6vx17t"
+path="res://.godot/imported/strangulation.jpg-4fad7c32e707bd699b2ff3963c704f2c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/strangulation.jpg"
+dest_files=["res://.godot/imported/strangulation.jpg-4fad7c32e707bd699b2ff3963c704f2c.ctex"]
 
 [params]
 

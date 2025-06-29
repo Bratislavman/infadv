@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brnj7u1ogbhiq"
-valid=false
+uid="uid://b16eybrcjaafl"
+path="res://.godot/imported/mental.jpg-a3f1f15488c8f55b4d0c49c6fba27250.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/mental.jpg"
+dest_files=["res://.godot/imported/mental.jpg-a3f1f15488c8f55b4d0c49c6fba27250.ctex"]
 
 [params]
 

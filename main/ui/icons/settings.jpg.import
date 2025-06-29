@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c15820atepgt4"
-valid=false
+uid="uid://cx2a8faltfco2"
+path="res://.godot/imported/settings.jpg-7b54fd66618691d077b26d85ffd4eddf.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/settings.jpg"
+dest_files=["res://.godot/imported/settings.jpg-7b54fd66618691d077b26d85ffd4eddf.ctex"]
 
 [params]
 

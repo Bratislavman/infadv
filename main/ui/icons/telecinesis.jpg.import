@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03xgwfuqrayd"
-valid=false
+uid="uid://df24p4ur1onva"
+path="res://.godot/imported/telecinesis.jpg-49b25a01d7f354eb7f4462968718892b.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/telecinesis.jpg"
+dest_files=["res://.godot/imported/telecinesis.jpg-49b25a01d7f354eb7f4462968718892b.ctex"]
 
 [params]
 

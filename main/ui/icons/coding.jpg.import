@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcwlaqbstj0nf"
-valid=false
+uid="uid://b5poowcgvg8ac"
+path="res://.godot/imported/coding.jpg-75c7bf91d7431647168284205f60a44a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/coding.jpg"
+dest_files=["res://.godot/imported/coding.jpg-75c7bf91d7431647168284205f60a44a.ctex"]
 
 [params]
 

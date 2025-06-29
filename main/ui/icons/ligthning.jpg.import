@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oy1cb67bpd6h"
-valid=false
+uid="uid://bkg771xia2g6i"
+path="res://.godot/imported/ligthning.jpg-47f8ab85111e2ed7af99b3301020b1fb.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/ligthning.jpg"
+dest_files=["res://.godot/imported/ligthning.jpg-47f8ab85111e2ed7af99b3301020b1fb.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkgc7kqkvkwlg"
-valid=false
+uid="uid://cv7ao8u7lijop"
+path="res://.godot/imported/rising.jpg-8cb2b8659fb19cb87409990b78ecff5a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://main/ui/icons/rising.jpg"
+dest_files=["res://.godot/imported/rising.jpg-8cb2b8659fb19cb87409990b78ecff5a.ctex"]
 
 [params]
 
