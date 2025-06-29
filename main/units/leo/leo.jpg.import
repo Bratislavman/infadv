@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1qsgyruwqsg6"
-path="res://.godot/imported/fast.jpg-6890403c942f79e9378a79f8035304af.ctex"
+uid="uid://cjbcphq1irxnm"
+path="res://.godot/imported/leo.jpg-c4af2035ebdb88e5b22ed906b4e36847.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/ui/fast.jpg"
-dest_files=["res://.godot/imported/fast.jpg-6890403c942f79e9378a79f8035304af.ctex"]
+source_file="res://main/units/leo/leo.jpg"
+dest_files=["res://.godot/imported/leo.jpg-c4af2035ebdb88e5b22ed906b4e36847.ctex"]
 
 [params]
 

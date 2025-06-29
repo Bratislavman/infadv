@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfsnx1jwjsjd6"
-path="res://.godot/imported/water.jpg-c08f30bbcc4d0d09943c1a7438f7c148.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://duribfcwuu32e"
+valid=false
 
 [deps]
 
-source_file="res://main/ui/water.jpg"
-dest_files=["res://.godot/imported/water.jpg-c08f30bbcc4d0d09943c1a7438f7c148.ctex"]
+source_file="res://main/ui/icons/berserk.jpg"
 
 [params]
 

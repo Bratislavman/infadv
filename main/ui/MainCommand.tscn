@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo3vd7ab1tenm"]
+[gd_scene load_steps=9 format=3 uid="uid://b30crx1xy5rn4"]
 
-[ext_resource type="Texture2D" uid="uid://d1qsgyruwqsg6" path="res://main/ui/fast.jpg" id="1_4xwrn"]
+[ext_resource type="Texture2D" path="res://main/ui/fast.jpg" id="1_4xwrn"]
 [ext_resource type="Theme" uid="uid://bw5wu7oc2blsy" path="res://btn.tres" id="1_s1dd2"]
-[ext_resource type="Texture2D" uid="uid://b0br3u61c4b3c" path="res://main/ui/arrow-down.jpg" id="2_mhead"]
+[ext_resource type="Texture2D" path="res://main/ui/arrow-down.jpg" id="2_mhead"]
 [ext_resource type="Script" path="res://main/ui/MainCommandIcon.gd" id="2_qiuqa"]
-[ext_resource type="Texture2D" uid="uid://53woqsjtoifk" path="res://main/ui/arrow-up.jpg" id="3_3xkpl"]
+[ext_resource type="Texture2D" path="res://main/ui/arrow-up.jpg" id="3_3xkpl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ylff1"]
 

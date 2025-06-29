@@ -2,16 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu6gupriwjv8l"
-path="res://.godot/imported/shield.jpg-c5e940c7ca167fedde45a5fc983bc3a1.ctex"
-metadata={
-"vram_texture": false
-}
+uid="uid://bwobx3sfn453y"
+valid=false
 
 [deps]
 
-source_file="res://main/ui/shield.jpg"
-dest_files=["res://.godot/imported/shield.jpg-c5e940c7ca167fedde45a5fc983bc3a1.ctex"]
+source_file="res://main/ui/icons/strangulation.jpg"
 
 [params]
 
