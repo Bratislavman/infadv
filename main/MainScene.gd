@@ -13,10 +13,10 @@ func _input(event):
 				config.load(G.SAVE_PATH)
 
 func _on_button_pressed():
-	# var missionClass = preload("res://missons/star-wars/StarWars.gd")
-	# G.mission = missionClass.new()
-
 	# var battleClass = preload("res://missons/star-wars/battle/battles/beast/BattleBeast.gd")
 	# G.mission = battleClass.new()
+
+	# heroUp 165 381, heroDown 158 571, heroMiddle 365 474
+	# enemyUp1 795 387, enemyUp2 987 355, enemyMiddle 673 472, enemyDown1 800 600, enemyDown2 987 585
 
 	get_tree().change_scene_to_file("res://main/battle/Field.tscn")

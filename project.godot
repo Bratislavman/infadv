@@ -19,3 +19,8 @@ config/icon="res://main/icon.svg"
 
 G="*res://main/MainGame.gd"
 Dark="*res://main/Dark.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"

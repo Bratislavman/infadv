@@ -15,27 +15,10 @@
 script = ExtResource("1_58okn")
 
 [node name="BG" type="Sprite2D" parent="."]
-visible = false
 show_behind_parent = true
 position = Vector2(576, 326)
 scale = Vector2(1.56522, 1.79292)
 texture = ExtResource("2_bdms5")
-
-[node name="HeroPos" type="Button" parent="."]
-offset_left = 129.0
-offset_top = 508.0
-offset_right = 146.0
-offset_bottom = 539.0
-theme_type_variation = &"FlatButton"
-text = "x"
-
-[node name="EnemyPos" type="Button" parent="."]
-offset_left = 844.0
-offset_top = 480.0
-offset_right = 861.0
-offset_bottom = 511.0
-theme_type_variation = &"FlatButton"
-text = "x"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.407843)
@@ -48,13 +31,13 @@ theme = SubResource("Theme_q3jb4")
 texture = SubResource("CanvasTexture_b0ol4")
 
 [node name="UnitIconSpell" parent="." instance=ExtResource("4_wqsxx")]
-offset_left = 89.0
+offset_left = 95.0
 offset_top = 26.0
-offset_right = 89.0
+offset_right = 95.0
 offset_bottom = 26.0
 
 [node name="Hero" type="Sprite2D" parent="."]
-position = Vector2(44, 49)
+position = Vector2(50, 49)
 texture = ExtResource("5_b2my3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -70,7 +53,7 @@ texture = SubResource("CanvasTexture_b0ol4")
 [node name="UnitIconList" parent="." instance=ExtResource("3_ho4x0")]
 position = Vector2(606, 25)
 
-[node name="Hero2" type="Sprite2D" parent="."]
+[node name="Settings" type="Sprite2D" parent="."]
 position = Vector2(1102, 50.5)
 scale = Vector2(1.42308, 1.48077)
 texture = ExtResource("6_6bpbx")
