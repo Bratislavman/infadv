@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://shr5flshc5yp"]
 
-[ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/units/max/max.jpg" id="1_6rnff"]
+[ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/battle/units/max/max.jpg" id="1_6rnff"]
 [ext_resource type="Texture2D" uid="uid://c5yoyqd783ev4" path="res://main/battle/ui/healthbar.jpg" id="2_imjul"]
 [ext_resource type="Texture2D" uid="uid://bd767v0qh5ntx" path="res://main/battle/ui/healthbarjpg.jpg" id="3_r0lpp"]
 

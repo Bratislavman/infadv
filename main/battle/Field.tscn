@@ -1,18 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://l2inm5hwj17x"]
+[gd_scene load_steps=8 format=3 uid="uid://l2inm5hwj17x"]
 
-[ext_resource type="Script" path="res://main/battle/Field.gd" id="1_58okn"]
 [ext_resource type="Texture2D" uid="uid://cu4kv35ymocbs" path="res://main/battle/bg/gateway.jpg" id="2_bdms5"]
 [ext_resource type="PackedScene" uid="uid://uslnnt18s30q" path="res://main/battle/ui/UnitIconList.tscn" id="3_ho4x0"]
 [ext_resource type="PackedScene" uid="uid://c4kntplouiqwk" path="res://main/battle/ui/UnitIconSpellList.tscn" id="4_wqsxx"]
-[ext_resource type="Texture2D" uid="uid://dr72xu80eqoi0" path="res://main/units/rex/rex.jpg" id="5_b2my3"]
-[ext_resource type="Texture2D" uid="uid://cx2a8faltfco2" path="res://main/ui/icons/settings.jpg" id="6_6bpbx"]
+[ext_resource type="Texture2D" uid="uid://dr72xu80eqoi0" path="res://main/battle/units/rex/rex.jpg" id="5_b2my3"]
+[ext_resource type="Texture2D" uid="uid://cx2a8faltfco2" path="res://main/battle/icons/settings.jpg" id="6_6bpbx"]
 
 [sub_resource type="Theme" id="Theme_q3jb4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b0ol4"]
 
 [node name="Field" type="Node2D"]
-script = ExtResource("1_58okn")
 
 [node name="BG" type="Sprite2D" parent="."]
 show_behind_parent = true

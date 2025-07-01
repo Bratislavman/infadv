@@ -54,6 +54,7 @@ _data = {
 }
 
 [node name="Dark" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_tcxph")
 
 [node name="ColorRect" type="ColorRect" parent="."]

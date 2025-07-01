@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjh6epsmlyo06"]
 
-[ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/units/max/max.jpg" id="1_nf4ti"]
+[ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/battle/units/max/max.jpg" id="1_nf4ti"]
 
 [node name="UnitIcon" type="Control"]
 layout_mode = 3

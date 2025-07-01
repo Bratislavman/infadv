@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckca84vvwuaw1"]
+
+[ext_resource type="Script" path="res://main/battle/battles/FirstBattle.gd" id="1_88rgr"]
+
+[node name="FirstBattle" type="Node2D"]
+script = ExtResource("1_88rgr")

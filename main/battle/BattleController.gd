@@ -21,6 +21,7 @@ var unitSideList = null
 
 func start(units):
 	unitList = units
+	
 	units[0].start()
 	isActive = true
 	
@@ -60,14 +61,7 @@ func getEnemyList(unit):
 			list.append(enemy)
 	return list
 
-#отправляемм событие всех эффектам юнтов для реакции
-func pushEvent(event):
-	for unit in unitList:
-		if (unit.efects.size()):
-			for efect in unit.efects:
-				efect.action(event)
-
-func controllerEndBattle():
+func beholderEndBattle():
 	unitSideList = {
 		'HERO': {
 			'live': [],
@@ -80,6 +74,7 @@ func controllerEndBattle():
 			'all': []
 		}
 	}
+
 	for unit in unitList:
 		if (unit.side != BATTLE_SIDES.NEUTRAL):
 			unitSideList[unit.side].all.append(unit)
@@ -88,12 +83,12 @@ func controllerEndBattle():
 			else:
 				unitSideList[unit.side].live.append(unit)
  
-	var enemyDeath = (
+	var heroDeath = (
 		unitSideList[BATTLE_SIDES.HERO].death.size()
 		==
 		unitSideList[BATTLE_SIDES.HERO].all.size()
 	)	
-	var heroDeath = (
+	var enemyDeath = (
 		unitSideList[BATTLE_SIDES.ENEMY].death.size()
 		==
 		unitSideList[BATTLE_SIDES.ENEMY].all.size()
@@ -114,8 +109,9 @@ func controllerEndBattle():
 	return false	
 		
 func endBattle(sideWinner):
+	print(sideWinner)
 	stop()
 						
 func action():
 	if (isActive):
-		controllerEndBattle()				
+		beholderEndBattle()				
