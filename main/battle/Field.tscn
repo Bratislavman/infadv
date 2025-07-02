@@ -14,8 +14,8 @@
 
 [node name="BG" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(576, 326)
-scale = Vector2(1.56522, 1.79292)
+position = Vector2(959, 556)
+scale = Vector2(1, 1.25339)
 texture = ExtResource("2_bdms5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -28,7 +28,7 @@ scale = Vector2(0.943317, 0.650419)
 theme = SubResource("Theme_q3jb4")
 texture = SubResource("CanvasTexture_b0ol4")
 
-[node name="UnitIconSpell" parent="." instance=ExtResource("4_wqsxx")]
+[node name="UnitIconSpellList" parent="." instance=ExtResource("4_wqsxx")]
 offset_left = 95.0
 offset_top = 26.0
 offset_right = 95.0
@@ -40,18 +40,18 @@ texture = ExtResource("5_b2my3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.407843)
-offset_left = 592.0
-offset_top = 8.0
-offset_right = 972.0
-offset_bottom = 133.0
+offset_left = 891.0
+offset_top = 11.0
+offset_right = 1271.0
+offset_bottom = 136.0
 scale = Vector2(0.943317, 0.650419)
 theme = SubResource("Theme_q3jb4")
 texture = SubResource("CanvasTexture_b0ol4")
 
 [node name="UnitIconList" parent="." instance=ExtResource("3_ho4x0")]
-position = Vector2(606, 25)
+position = Vector2(905, 28)
 
 [node name="Settings" type="Sprite2D" parent="."]
-position = Vector2(1102, 50.5)
+position = Vector2(1867, 56)
 scale = Vector2(1.42308, 1.48077)
 texture = ExtResource("6_6bpbx")

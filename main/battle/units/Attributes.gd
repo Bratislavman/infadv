@@ -2,12 +2,15 @@ extends Node2D
 
 class_name Attributes
 
+static var attrNameDmg = 'dmg'
+static var attrNameHp = 'hp'
+
 var nameAttr = ''
 var valueMax = 0
 var value = 0
 
-func _init(name, valueMax):
-	nameAttr = name
+func _init(nameAttr, valueMax):
+	nameAttr = nameAttr
 	self.valueMax = valueMax
 	value = valueMax
 

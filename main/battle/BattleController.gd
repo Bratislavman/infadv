@@ -19,14 +19,30 @@ var unitList = []
 var currentUnitIndex = 0
 var unitSideList = null
 
+var heroIconClass = preload("res://main/battle/ui/UnitIcon.tscn")
+
+func initUnitsIcons():
+	var iconListContainer = G.battle.battleField.get_node('UnitIconList/Control/ScrollContainer/HBoxContainer')
+	
+	var icons = iconListContainer.get_children()
+
+	for item in icons:
+		item.queue_free()
+
+	for unit in unitList:
+		var icon = heroIconClass.instantiate()
+		iconListContainer.add_child(icon)
+		icon.init(unit)
+
 func start(units):
 	unitList = units
-	
-	units[0].start()
 	isActive = true
+	initUnitsIcons()
 	
 func stop():
 	isActive = false	
+	for unit in unitList:
+		unit.remove()
 	unitList = []
 	currentUnitIndex = 0
 
@@ -114,4 +130,5 @@ func endBattle(sideWinner):
 						
 func action():
 	if (isActive):
-		beholderEndBattle()				
+		pass
+		# beholderEndBattle()				

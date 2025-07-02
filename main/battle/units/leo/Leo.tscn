@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dafjqjhbvcjd6"]
 
-[ext_resource type="Texture2D" uid="uid://b8b5m8kb0vla0" path="res://main/units/leo/leo.png" id="1_j8j3m"]
+[ext_resource type="Texture2D" uid="uid://b8b5m8kb0vla0" path="res://main/battle/units/leo/leo.png" id="1_j8j3m"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001

@@ -1,6 +1,7 @@
-extends Node
+extends Control
 
 func _on_button_pressed():
-	var darkFunc = func ():
-		get_tree().change_scene_to_file("res://main/battle/battles/FirstBattle.tscn")
-	Dark.blackout(darkFunc)
+	G.mainScene = self
+	var battleClass = preload("res://main/battle/battles/FirstBattle.gd")
+	battleClass.new()
+	visible = false
