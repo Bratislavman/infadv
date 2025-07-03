@@ -2,13 +2,12 @@ extends Node
 
 class_name Unit
 
-# TODO
-var counter = 0
-
 var icon
-var commands :Array = []
-var attributes :Dictionary = {}
+var commands:Array = []
+var attributes:Dictionary = {}
+var spells:Array[Spell] = [SpellAttack.new(self)]
 var side
+var actionCount = 1
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D
@@ -52,8 +51,14 @@ func endAnimation():
 	commands[0].endAnimation()
 
 func _process(delta: float) -> void:
-	if isLive() && G.battleController.isCurrUnit(get_instance_id()):
-		counter+=1
-		if counter == 120:
-			counter = 0
+	if G.battleController.isCurrUnit(get_instance_id()):
+		if actionCount > 0:
+			for spell in spells:
+				if spell is SpellAttack:
+					var target = G.battleController.getEnemyList(self).pick_random()
+					spell.action(target)
+			actionCount-=1			
+
+		if commands.size() == 0:
+			actionCount = 1
 			G.battleController.nextUnit()

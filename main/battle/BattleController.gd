@@ -68,8 +68,6 @@ func getEnemyList(unit):
 		side =  BATTLE_SIDES.HERO
 	if (unit.side == BATTLE_SIDES.HERO):
 		side =  BATTLE_SIDES.ENEMY
-	if (unit.side == BATTLE_SIDES.NEUTRAL):
-		side = [BATTLE_SIDES.HERO, BATTLE_SIDES.ENEMY].pick_random()
 	for enemy in unitList:
 		if (enemy.side == side):
 			list.append(enemy)

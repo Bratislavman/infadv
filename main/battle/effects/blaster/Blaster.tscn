@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cauxmjgypj66a"]
 
-[ext_resource type="Texture2D" uid="uid://dpx720n46kttg" path="res://main/effects/blaster/blaster.png" id="1_u2anq"]
+[ext_resource type="Texture2D" uid="uid://dpx720n46kttg" path="res://main/battle/effects/blaster/blaster.png" id="1_u2anq"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001

@@ -1,7 +1,6 @@
-extends SpellOneTarget
+extends Spell
 
-class_name Attack
+class_name SpellAttack
 
-func action(target):
-	super.action(target)
-	caster.commandList.append(CommandAttack.new(caster, target, 1))
+func postSpellAction():
+	caster.commands.append(CommandAttackMelee.new(caster, target))

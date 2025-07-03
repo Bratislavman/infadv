@@ -6,21 +6,29 @@ class_name CommandAnim
 var caster = null
 var target = null
 var animationName = ''
-# animationFunc вызывается в actionAnimFrame у юнита, которую вызывает animationplayer юнита на нужном кадре(прим. атаки)
-# применяется во время конкретного кадра анимки персонажа
 var animationFunc = null
+var effects = []
+var isActiveBeholderEffects = false
 
 func _init(caster, target, animationName, animationFunc):
+	caster.commands.push_back(self) 
 	self.caster = caster
 	self.target = target
 	self.animationName = animationName
 	self.animationFunc = animationFunc
+	G.battle.battleField.add_child(self)
+
+func action():
 	caster.playAnim(animationName)
 
+#в нужный кадр анимации юнита вызывется его actionAnimation, а он вызовет эту ф-цию текущей команды
 func actionAnimation():
 	animationFunc.call()
+	isActiveBeholderEffects = true
 
 func endAnimation():
-	caster.playAnim("unit/stay")
-	caster.removeCommand()
-	queue_free()
+	caster.playAnim("stay")
+
+func _process(delta: float) -> void:
+	if isActiveBeholderEffects && effects.size() == 0:
+		queue_free()
