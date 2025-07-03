@@ -25,3 +25,4 @@ Dark="*res://main/Dark.tscn"
 window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
+window/stretch/aspect="expand"
