@@ -2,9 +2,13 @@ extends Node
 
 class_name Unit
 
+# TODO
+var counter = 0
+
 var icon
 var commands :Array = []
 var attributes :Dictionary = {}
+var side
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D
@@ -46,3 +50,10 @@ func actionAnimation():
 	
 func endAnimation():
 	commands[0].endAnimation()
+
+func _process(delta: float) -> void:
+	if isLive() && G.battleController.isCurrUnit(get_instance_id()):
+		counter+=1
+		if counter == 120:
+			counter = 0
+			G.battleController.nextUnit()

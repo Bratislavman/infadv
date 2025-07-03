@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://l2inm5hwj17x"]
+[gd_scene load_steps=9 format=3 uid="uid://l2inm5hwj17x"]
 
 [ext_resource type="Texture2D" uid="uid://cu4kv35ymocbs" path="res://main/battle/bg/gateway.jpg" id="2_bdms5"]
 [ext_resource type="PackedScene" uid="uid://uslnnt18s30q" path="res://main/battle/ui/UnitIconList.tscn" id="3_ho4x0"]
+[ext_resource type="Texture2D" uid="uid://cjbcphq1irxnm" path="res://main/battle/units/leo/leo.jpg" id="3_liffv"]
 [ext_resource type="PackedScene" uid="uid://c4kntplouiqwk" path="res://main/battle/ui/UnitIconSpellList.tscn" id="4_wqsxx"]
-[ext_resource type="Texture2D" uid="uid://dr72xu80eqoi0" path="res://main/battle/units/rex/rex.jpg" id="5_b2my3"]
+[ext_resource type="Script" path="res://main/battle/HeroIcon.gd" id="4_ykns3"]
 [ext_resource type="Texture2D" uid="uid://cx2a8faltfco2" path="res://main/battle/icons/settings.jpg" id="6_6bpbx"]
 
 [sub_resource type="Theme" id="Theme_q3jb4"]
@@ -36,7 +37,8 @@ offset_bottom = 26.0
 
 [node name="Hero" type="Sprite2D" parent="."]
 position = Vector2(50, 49)
-texture = ExtResource("5_b2my3")
+texture = ExtResource("3_liffv")
+script = ExtResource("4_ykns3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 0.407843)

@@ -22,33 +22,25 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
 [node name="UnitIcon" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon2" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon3" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon4" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon5" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon6" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon7" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 
 [node name="UnitIcon8" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
-custom_minimum_size = Vector2(38, 0)
 layout_mode = 2

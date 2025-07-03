@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bd767v0qh5ntx" path="res://main/battle/ui/healthbarjpg.jpg" id="3_r0lpp"]
 
 [node name="UnitIcon" type="Control"]
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_nbbx5")

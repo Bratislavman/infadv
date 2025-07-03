@@ -52,7 +52,7 @@ func getCurrUnit():
 func isCurrUnit(id):
 	var unit = getCurrUnit()
 	if (unit):
-		return unit.id == id
+		return unit.get_instance_id() == id
 	return false
 
 func nextUnit():
@@ -60,8 +60,6 @@ func nextUnit():
 	if (nextIndex > (unitList.size()-1)):
 		nextIndex = 0
 	currentUnitIndex = nextIndex
-	var unit = getCurrUnit()
-	unit.start()
 
 func getEnemyList(unit):
 	var list = []

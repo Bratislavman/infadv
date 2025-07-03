@@ -4,10 +4,9 @@ class_name FirstBattle
 
 func createScene():
 	var rexClass = preload("res://main/battle/units/rex/Rex.tscn")
-	var rex = rexClass.instantiate()
+	var leoClass = preload("res://main/battle/units/leo/Leo.tscn")
+	
+	var rex = addUnit(rexClass, 673, 933)
+	var leo = addUnit(leoClass, 673, 1000)
 
-	G.battle.battleField.add_child(rex)
-	rex.position.x = 673
-	rex.position.y = 933
-
-	G.battleController.start([rex])
+	G.battleController.start([rex, leo])
