@@ -8,5 +8,8 @@ var unit
 func init(unit):
 	self.unit = unit
 	_icon.texture_normal = unit.icon
-	_bar.value = unit.attributes[Attributes.attrNameHp].value
-	_bar.max_value = unit.attributes[Attributes.attrNameHp].valueMax
+
+func _process(delta: float) -> void:
+	if unit:
+		_bar.value = unit.attributes[Attributes.attrNameHp].value
+		_bar.max_value = unit.attributes[Attributes.attrNameHp].valueMax
