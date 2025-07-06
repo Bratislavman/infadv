@@ -9,6 +9,6 @@ func createScene():
 	
 	var rex = addUnit(rexClass, 673, 933)
 	var leo = addUnit(leoClass, 673, 1000)
-	var max = addUnit(maxClass, 800, 1000)
+	var max = addUnit(maxClass, 800, 1000, G.battleController.BATTLE_SIDES.ENEMY)
 
 	G.battleController.start([rex, leo, max])

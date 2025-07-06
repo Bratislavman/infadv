@@ -10,7 +10,7 @@ func init(unit):
 	_icon.texture_normal = unit.icon
 
 func _process(delta: float) -> void:
-	if unit:
+	if unit != null:
 		_bar.value = unit.attributes[Attributes.attrNameHp].value
 		_bar.max_value = unit.attributes[Attributes.attrNameHp].valueMax
 		if G.battleController.isCurrUnit(unit.get_instance_id()):

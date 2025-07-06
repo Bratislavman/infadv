@@ -4,8 +4,13 @@ class_name SpecEffectAnim
 
 var command = null
 
-func _init(command):
+@onready var _animation_player = $AnimationPlayer
+
+func init(command):
 	self.command = command
+	if _animation_player:
+		_animation_player.play('stay')
 
 func endAnimation():
-	queue_free();
+	command.removeEffect(self)
+	queue_free()

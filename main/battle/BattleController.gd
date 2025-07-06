@@ -40,14 +40,16 @@ func start(units):
 	initUnitsIcons()
 	
 func stop():
-	isActive = false	
+	isActive = false
 	for unit in unitList:
 		unit.remove()
 	unitList = []
 	currentUnitIndex = 0
 
 func getCurrUnit():
-	return unitList[currentUnitIndex]
+	if unitList.size():
+		return unitList[currentUnitIndex]
+	return null
 	
 func isCurrUnit(id):
 	var unit = getCurrUnit()
@@ -61,7 +63,7 @@ func nextUnit():
 		nextIndex = 0
 	currentUnitIndex = nextIndex
 
-func getEnemyList(unit):
+func getEnemyList(unit, onlyLive = true):
 	var list = []
 	var side = ''
 	if (unit.side == BATTLE_SIDES.ENEMY):
@@ -69,7 +71,7 @@ func getEnemyList(unit):
 	if (unit.side == BATTLE_SIDES.HERO):
 		side =  BATTLE_SIDES.ENEMY
 	for enemy in unitList:
-		if (enemy.side == side):
+		if (enemy.side == side && (onlyLive && enemy.isLive())):
 			list.append(enemy)
 	return list
 
@@ -121,10 +123,9 @@ func beholderEndBattle():
 	return false	
 		
 func endBattle(sideWinner):
-	print(sideWinner)
+	print(sideWinner, ' BATTLE END')
 	stop()
 						
 func action():
 	if (isActive):
-		pass
-		# beholderEndBattle()				
+		beholderEndBattle()				

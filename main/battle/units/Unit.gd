@@ -2,6 +2,7 @@ extends Node
 
 class_name Unit
 
+var unitName = ''
 var icon
 var commands:Array = []
 var attributes:Dictionary = {}
@@ -26,14 +27,11 @@ func spriteInvert(target) -> void:
 func initTargetAction() -> void:
 	pass
 
-func removeCommand():
-	commands.pop_front()
-
 func isLive():
 	return attributes[Attributes.attrNameHp].value > 0
 
 func isDeath():
-	return attributes[Attributes.attrNameHp].value > 0
+	return attributes[Attributes.attrNameHp].value == 0
 	
 func dmg(damage):
 	attributes[Attributes.attrNameHp].minus(damage)
@@ -50,14 +48,23 @@ func actionAnimation():
 func endAnimation():
 	commands[0].endAnimation()
 
+func remove():
+	if commands.size():
+		for command in commands:
+			command.remove()
+	queue_free()
+
 func _process(delta: float) -> void:
 	if G.battleController.isCurrUnit(get_instance_id()):
-		if actionCount > 0:
-			for spell in spells:
-				if spell is SpellAttack:
-					var target = G.battleController.getEnemyList(self).pick_random()
-					spell.action(target)
-			actionCount-=1			
+		if isLive() && actionCount > 0:
+			var spell = spells.pick_random()
+			if spell is SpellAttack:
+				var list = G.battleController.getEnemyList(self)
+				if list.size():
+					var target = list.pick_random()
+					if (target): 
+						spell.action(target)
+						actionCount-=1			
 
 		if commands.size() == 0:
 			actionCount = 1
