@@ -2,45 +2,41 @@
 
 [ext_resource type="PackedScene" uid="uid://shr5flshc5yp" path="res://main/battle/ui/UnitIcon.tscn" id="1_libxl"]
 
-[node name="UnitIconList" type="Node2D"]
-
-[node name="Control" type="Control" parent="."]
+[node name="UnitIconList" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_right = 455.0
 offset_bottom = 108.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="UnitIcon" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon2" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon3" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon3" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon4" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon4" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon5" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon5" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon6" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon6" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon7" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon7" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2
 
-[node name="UnitIcon8" parent="Control/ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
+[node name="UnitIcon8" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_libxl")]
 layout_mode = 2

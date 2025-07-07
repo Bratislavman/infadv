@@ -5,7 +5,7 @@ class_name Battle
 func _init():
 	var darkFunc = func ():
 		G.battle = self
-		G.battleField.visible = true
+		G.battleController.visible = true
 
 		createScene()
 
@@ -15,7 +15,7 @@ func _init():
 
 func addUnit(unitClass, x, y, side = G.battleController.BATTLE_SIDES.HERO):
 	var unit = unitClass.instantiate()
-	G.battleField.add_child(unit)
+	G.battleController.add_child(unit)
 	unit.position.x = x
 	unit.position.y = y
 	unit.side = side

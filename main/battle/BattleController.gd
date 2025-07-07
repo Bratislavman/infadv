@@ -15,14 +15,30 @@ const BATTLE_SIDES = {
 }
 
 var isActive = false
+
 var unitList = []
 var currentUnitIndex = 0
 var unitSideList = null
 
+var currentPlayerSelectSpell = null
+
 var heroIconClass = preload("res://main/battle/ui/UnitIcon.tscn")
+var heroIconSpellClass = preload("res://main/battle/ui/UnitIconSpell.tscn")
+
+var iconCursorDefault = load("res://main/ui/cursor.png")
+var iconCursorNone = load("res://main/ui/cursor-none.png")
+var iconCursorSpell = load("res://main/ui/force.png")
+
+func playerSelectSpell(spell):
+	currentPlayerSelectSpell = spell
+	
+	if spell == null:
+		Input.set_custom_mouse_cursor(iconCursorDefault)
+	else:
+		Input.set_custom_mouse_cursor(iconCursorSpell)
 
 func initUnitsIcons():
-	var iconListContainer = G.battleField.get_node('UnitIconList/Control/ScrollContainer/HBoxContainer')
+	var iconListContainer = G.battleController.get_node('UnitIconList/ScrollContainer/HBoxContainer')
 	
 	var icons = iconListContainer.get_children()
 
@@ -34,10 +50,27 @@ func initUnitsIcons():
 		iconListContainer.add_child(icon)
 		icon.init(unit)
 
+func initUnitsIconsSpells():
+	var iconListContainer = G.battleController.get_node('UnitIconSpellList/ScrollContainer/HBoxContainer')
+	
+	var icons = iconListContainer.get_children()
+
+	for item in icons:
+		item.queue_free()
+
+	var unit = getCurrUnit()
+	
+	if unit.isPlayerHero:
+		for spell in unit.spells:
+			var icon = heroIconSpellClass.instantiate()
+			iconListContainer.add_child(icon)
+			icon.init(spell)
+
 func start(units):
 	unitList = units
 	isActive = true
 	initUnitsIcons()
+	initUnitsIconsSpells()
 	
 func stop():
 	isActive = false
@@ -62,6 +95,7 @@ func nextUnit():
 	if (nextIndex > (unitList.size()-1)):
 		nextIndex = 0
 	currentUnitIndex = nextIndex
+	initUnitsIconsSpells()
 
 func getEnemyList(unit, onlyLive = true):
 	var list = []

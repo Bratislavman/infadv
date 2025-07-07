@@ -7,8 +7,10 @@ var icon
 var commands:Array = []
 var attributes:Dictionary = {}
 var spells:Array[Spell] = [SpellAttack.new(self)]
+var effects = []
 var side
 var actionCount = 1
+var isPlayerHero = false
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D
@@ -58,21 +60,42 @@ func remove():
 		for spell in spells:
 			spell.remove()
 	spells = []
-	
+
 	queue_free()
 
-func _process(delta: float) -> void:
-	if G.battleController.isCurrUnit(get_instance_id()):
-		if isLive() && actionCount > 0:
-			var spell = spells.pick_random()
+
+
+func endTurn():
+	actionCount = 1
+	G.battleController.nextUnit()
+
+func ai():
+	var activeSpells = []
+
+	for spell in spells:
+		spell.reload()
+		if spell.isActive():
+			activeSpells.append(spell)
+
+	if activeSpells.size():
+		var spell = activeSpells.pick_random()
+		if spell.isActive():
 			if spell is SpellAttack:
 				var list = G.battleController.getEnemyList(self)
 				if list.size():
 					var target = list.pick_random()
 					if (target): 
 						spell.action(target)
-						actionCount-=1			
+						actionCount-=1	
 
-		if commands.size() == 0:
-			actionCount = 1
-			G.battleController.nextUnit()
+func _process(delta: float) -> void:
+	if G.battleController.isCurrUnit(get_instance_id()):
+		if (isPlayerHero):	
+			if (commands.size() == 0 && actionCount == 0) || isDeath():
+				endTurn()
+		else:
+			if isLive() && actionCount > 0:	
+				ai()
+
+			if commands.size() == 0:
+				endTurn()

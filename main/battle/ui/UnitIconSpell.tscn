@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjh6epsmlyo06"]
+[gd_scene load_steps=3 format=3 uid="uid://bjh6epsmlyo06"]
 
 [ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/battle/units/max/max.jpg" id="1_nf4ti"]
+[ext_resource type="Script" path="res://main/battle/ui/UnitIconSpell.gd" id="1_vu6eq"]
 
 [node name="UnitIcon" type="Control"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 35.0
+offset_bottom = 50.0
+script = ExtResource("1_vu6eq")
 
 [node name="Icon" type="TextureButton" parent="."]
 layout_mode = 2
@@ -12,3 +17,6 @@ offset_right = 60.0
 offset_bottom = 61.0
 scale = Vector2(0.655741, 0.72051)
 texture_normal = ExtResource("1_nf4ti")
+
+[connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
+[connection signal="button_up" from="Icon" to="." method="_on_icon_button_up"]

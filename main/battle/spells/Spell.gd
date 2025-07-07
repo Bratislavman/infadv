@@ -3,6 +3,7 @@ extends Node
 class_name Spell
 
 var target
+var icon
 var caster
 var type = ''
 var reloadCount = 1
@@ -28,6 +29,9 @@ func reload():
 		
 func isActive():
 	return currentReloadCount == 0
+
+func isReload():
+	return currentReloadCount > 0
 
 func remove():
 	queue_free()

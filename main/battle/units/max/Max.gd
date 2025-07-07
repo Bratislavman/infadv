@@ -7,4 +7,5 @@ func init():
 	attributes[Attributes.attrNameHp] = Attributes.new('Жизни', 10)
 	icon = preload("res://main/battle/units/max/max.jpg")
 	unitName = 'Макс'
+	spells = [SpellAttack.new(self)]
 	super.init()

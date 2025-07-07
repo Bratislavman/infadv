@@ -7,4 +7,6 @@ func init():
 	attributes[Attributes.attrNameHp] = Attributes.new('Жизни', 10)
 	icon = preload("res://main/battle/units/leo/leo.jpg")
 	unitName = 'Лео'
+	isPlayerHero = true
+	spells = [SpellAttack.new(self), SpellDoubleAttack.new(self)]
 	super.init()

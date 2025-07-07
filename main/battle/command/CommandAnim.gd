@@ -16,7 +16,7 @@ func _init(caster: Unit, target: Unit, animationName, animationFunc):
 	self.target = target
 	self.animationName = animationName
 	self.animationFunc = animationFunc
-	G.battleField.add_child(self)
+	G.battleController.add_child(self)
 	caster.playAnim(animationName)
 
 #в нужный кадр анимации юнита вызывется его actionAnimation, а он вызовет эту ф-цию текущей команды

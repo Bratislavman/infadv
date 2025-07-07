@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	if unit != null:
 		_bar.value = unit.attributes[Attributes.attrNameHp].value
 		_bar.max_value = unit.attributes[Attributes.attrNameHp].valueMax
+		
 		if G.battleController.isCurrUnit(unit.get_instance_id()):
 			modulate = Color(0.955, 0.957, 0.359, 1)
 		else:
