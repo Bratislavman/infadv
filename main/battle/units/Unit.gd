@@ -52,6 +52,13 @@ func remove():
 	if commands.size():
 		for command in commands:
 			command.remove()
+	commands = []
+
+	if spells.size():
+		for spell in spells:
+			spell.remove()
+	spells = []
+	
 	queue_free()
 
 func _process(delta: float) -> void:

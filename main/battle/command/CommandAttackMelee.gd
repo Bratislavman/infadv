@@ -8,7 +8,7 @@ func _init(caster: Unit, target: Unit):
 		target.dmg(caster.attributes[Attributes.attrNameDmg].value)
 		var effect = hitClass.instantiate()
 
-		G.battle.battleField.add_child(effect)
+		G.battleField.add_child(effect)
 		effect.position = target.position
 
 		effect.init(self)

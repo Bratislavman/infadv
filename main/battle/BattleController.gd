@@ -22,7 +22,7 @@ var unitSideList = null
 var heroIconClass = preload("res://main/battle/ui/UnitIcon.tscn")
 
 func initUnitsIcons():
-	var iconListContainer = G.battle.battleField.get_node('UnitIconList/Control/ScrollContainer/HBoxContainer')
+	var iconListContainer = G.battleField.get_node('UnitIconList/Control/ScrollContainer/HBoxContainer')
 	
 	var icons = iconListContainer.get_children()
 
