@@ -13,7 +13,7 @@ func _init():
 
 	Dark.blackout(darkFunc)
 
-func addUnit(unitClass, x, y, side = G.battleController.BATTLE_SIDES.HERO):
+func addUnit(unitClass, x, y, side = BattleController.BATTLE_SIDES.HERO):
 	var unit = unitClass.instantiate()
 	G.battleController.add_child(unit)
 	unit.position.x = x

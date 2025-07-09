@@ -19,4 +19,3 @@ scale = Vector2(0.655741, 0.72051)
 texture_normal = ExtResource("1_nf4ti")
 
 [connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
-[connection signal="button_up" from="Icon" to="." method="_on_icon_button_up"]

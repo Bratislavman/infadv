@@ -2,12 +2,19 @@ extends Node
 
 class_name Spell
 
+static var targetTypeList = {
+	'enemy': 'enemy',
+	'frendly': 'frendly',
+	'self': 'self',
+}
+
 var target
 var icon
 var caster
 var type = ''
 var reloadCount = 1
 var currentReloadCount = 0
+var targetType = Spell.targetTypeList.enemy
 
 func _init(caster):
 	self.caster = caster	

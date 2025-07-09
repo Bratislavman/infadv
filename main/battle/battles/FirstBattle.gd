@@ -7,8 +7,8 @@ func createScene():
 	var leoClass = preload("res://main/battle/units/leo/Leo.tscn")
 	var maxClass = preload("res://main/battle/units/max/Max.tscn")
 	
-	var rex = addUnit(rexClass, 673, 933)
+	var rex = addUnit(rexClass, 1500, 933)
 	var leo = addUnit(leoClass, 673, 1000)
-	var max = addUnit(maxClass, 800, 1000, G.battleController.BATTLE_SIDES.ENEMY)
+	var max = addUnit(maxClass, 800, 1000, BattleController.BATTLE_SIDES.ENEMY)
 
 	G.battleController.start([rex, leo, max])

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dafjqjhbvcjd6"]
+[gd_scene load_steps=11 format=3 uid="uid://dafjqjhbvcjd6"]
 
 [ext_resource type="Texture2D" uid="uid://b8b5m8kb0vla0" path="res://main/battle/units/leo/leo.png" id="1_j8j3m"]
 [ext_resource type="Script" path="res://main/battle/units/leo/Leo.gd" id="1_r5u80"]
+[ext_resource type="Script" path="res://main/battle/units/UnitMouseHendlerArea.gd" id="3_8tbyj"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001
@@ -209,11 +210,13 @@ _data = {
 "stay": SubResource("Animation_qxn47")
 }
 
-[node name="Rex" type="Node2D"]
+[node name="Rex" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_r5u80")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -50)
+position = Vector2(-2, -41)
 scale = Vector2(2, 2)
 texture = ExtResource("1_j8j3m")
 offset = Vector2(5, 0)
@@ -224,3 +227,12 @@ region_rect = Rect2(478.675, 14.1289, 31.6106, 59.8342)
 libraries = {
 "": SubResource("AnimationLibrary_e6pxm")
 }
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -28.0
+offset_top = -97.0
+offset_right = 21.0
+offset_bottom = 10.0
+script = ExtResource("3_8tbyj")

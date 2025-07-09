@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 class_name Unit
 
@@ -11,11 +11,14 @@ var effects = []
 var side
 var actionCount = 1
 var isPlayerHero = false
+var scaleXSize = null
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D
+@onready var _mouse_hendler_area = $Control
 
 func init():
+	scaleXSize = scale.x
 	playAnim("stay")
 
 func _ready() -> void:
@@ -24,7 +27,10 @@ func _ready() -> void:
 # инвертируем спрайт к цели во время действия
 func spriteInvert(target) -> void:
 	if target:
-		_sprite.flip_h = target.x < self.x
+		if target.position.x < self.position.x:
+			scale.x = scaleXSize*-1
+		else:
+			scale.x = scaleXSize
 
 func initTargetAction() -> void:
 	pass
@@ -63,11 +69,36 @@ func remove():
 
 	queue_free()
 
-
+func checkCurrentCommand(command):
+	return command == commands[0]	
 
 func endTurn():
 	actionCount = 1
 	G.battleController.nextUnit()
+
+func unitIsEnemy(unit):
+	return side != unit.side
+
+func useSpell(spell, targetList = []):
+	if spell && spell.isActive():
+		if spell.targetType == Spell.targetTypeList.enemy:
+			var target = null
+
+			# либо цель одна, либо берём случайного врага
+			if targetList.size():
+				target = targetList[0]
+			else:
+				var enemyList = G.battleController.getEnemyList(self)
+				target = enemyList.pick_random()
+
+			spriteInvert(target)
+			spell.action(target)
+
+	actionCount-=1
+
+func reloadSpells():
+	for spell in spells:
+		spell.reload()
 
 func ai():
 	var activeSpells = []
@@ -79,23 +110,18 @@ func ai():
 
 	if activeSpells.size():
 		var spell = activeSpells.pick_random()
-		if spell.isActive():
-			if spell is SpellAttack:
-				var list = G.battleController.getEnemyList(self)
-				if list.size():
-					var target = list.pick_random()
-					if (target): 
-						spell.action(target)
-						actionCount-=1	
+		useSpell(spell)
 
 func _process(delta: float) -> void:
 	if G.battleController.isCurrUnit(get_instance_id()):
-		if (isPlayerHero):	
+		if (isPlayerHero):
+			#если перс мёртв, без команд и очков действий, то переход хода 
 			if (commands.size() == 0 && actionCount == 0) || isDeath():
 				endTurn()
 		else:
 			if isLive() && actionCount > 0:	
 				ai()
 
+			#если юнит не заюзал спел, то команд не будет, значит спелы не заюзать и поэтому переход хода
 			if commands.size() == 0:
 				endTurn()

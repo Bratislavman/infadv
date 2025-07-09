@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://clo5ry8jwikw5"]
+[gd_scene load_steps=10 format=3 uid="uid://clo5ry8jwikw5"]
 
 [ext_resource type="Texture2D" uid="uid://boghu1s3t5k68" path="res://main/battle/units/rex/Rex.png" id="1_5a0wt"]
 [ext_resource type="Script" path="res://main/battle/units/rex/Rex.gd" id="1_jooha"]
+[ext_resource type="Script" path="res://main/battle/units/UnitMouseHendlerArea.gd" id="3_42ack"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001
@@ -32,7 +33,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_4nm8t"]
 resource_name = "attack"
-length = 0.3
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,10 +41,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2(344.206, 193.472, 46.2267, 55.9809), Rect2(405.689, 183.265, 71.8513, 65.8929)]
+"values": [Rect2(210, 202, 80, 44), Rect2(638, 482, 48, 36)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -52,10 +53,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(-8, -4)]
+"values": [Vector2(15, -6), Vector2(-5, -4)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -78,7 +79,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -88,7 +89,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_jb541"]
 resource_name = "death"
-length = 0.6
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,10 +97,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Rect2(610.378, 878.478, 52.592, 58.0562), Rect2(670.967, 881.509, 39.8652, 52.1641), Rect2(717.107, 887.043, 42.0737, 47.3329)]
+"values": [Rect2(21, 958, 33, 38)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -108,15 +109,15 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(8, -1), Vector2(8, 1)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_v7pg1"]
 resource_name = "spell"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,10 +125,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2(128.21, 718.504, 47.1635, 54.7372), Rect2(298.421, 718.395, 53.8817, 54.3948), Rect2(179.169, 716.181, 55.1327, 56.6749)]
+"values": [Rect2(244, 344, 57, 51), Rect2(128, 344, 46, 51)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -136,10 +137,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(-2, -1), Vector2(0, -2)]
+"values": [Vector2(11, -8), Vector2(4, -9)]
 }
 
 [sub_resource type="Animation" id="Animation_qxn47"]
@@ -153,10 +154,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2(478.675, 14.1289, 31.6106, 59.8342), Rect2(529.885, 11.524, 32.7392, 62.5727)]
+"values": [Rect2(221, 14, 30, 57), Rect2(269, 14, 30, 58)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -165,10 +166,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(4, -1)]
+"values": [Vector2(1, -11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6pxm"]
@@ -180,13 +181,14 @@ _data = {
 "stay": SubResource("Animation_qxn47")
 }
 
-[node name="Rex" type="Node2D"]
+[node name="Rex" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(2, 2)
 script = ExtResource("1_jooha")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4, -19)
-scale = Vector2(-1, 1)
+position = Vector2(-0.5, -12)
 texture = ExtResource("1_5a0wt")
 offset = Vector2(5, 0)
 region_enabled = true
@@ -196,3 +198,12 @@ region_rect = Rect2(478.675, 14.1289, 31.6106, 59.8342)
 libraries = {
 "": SubResource("AnimationLibrary_e6pxm")
 }
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -17.0
+offset_top = -57.0
+offset_right = 22.0
+offset_bottom = 6.0
+script = ExtResource("3_42ack")

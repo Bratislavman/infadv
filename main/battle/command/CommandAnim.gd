@@ -3,6 +3,7 @@ extends Node
 #команда проигрыша анимки действия к обьекту и само действие в конкретный момент анимки
 class_name CommandAnim
 
+var phase = 0
 var caster = null
 var target = null
 var animationName = ''
@@ -17,7 +18,6 @@ func _init(caster: Unit, target: Unit, animationName, animationFunc):
 	self.animationName = animationName
 	self.animationFunc = animationFunc
 	G.battleController.add_child(self)
-	caster.playAnim(animationName)
 
 #в нужный кадр анимации юнита вызывется его actionAnimation, а он вызовет эту ф-цию текущей команды
 func actionAnimation():
@@ -42,6 +42,19 @@ func removeEffect(obj):
 		effects[index].queue_free()
 		effects.remove_at(index)
 
+func commandStart():
+	caster.playAnim(animationName)
+
+func commandProcess():
+	pass	
+
 func _process(delta: float) -> void:
+	if phase == 0 && caster.checkCurrentCommand(self):
+		commandStart()
+		phase = 1 
+
+	if phase == 1:	
+		commandProcess()
+
 	if isActiveBeholderEffects && effects.size() == 0:
 		remove()
