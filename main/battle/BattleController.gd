@@ -116,9 +116,9 @@ func getCurrUnit():
 
 func getCurrPlayerUnit():
 	var unit = getCurrUnit()
-	if unit && unit.isPlayerHero:
+	if unit && unit.isPlayerHero && unit.isLive():
 		return unit
-	return null	
+	return null
 	
 func isCurrUnit(id):
 	var unit = getCurrUnit()
