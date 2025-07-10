@@ -13,7 +13,8 @@ func init(spell):
 
 func _process(delta: float) -> void:
 	if spell != null:
-		if spell.isReload():
+		var unit = G.battleController.getCurrPlayerUnit()
+		if spell.isReload() || unit == null:
 			modulate = Color(0.234, 0.234, 0.234, 1)
 		elif self.spell == G.battleController.currentPlayerSelectSpell: 
 			modulate = Color(0.955, 0.957, 0.359, 1)	

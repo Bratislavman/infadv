@@ -32,6 +32,14 @@ var iconCursorDefault = load("res://main/ui/cursor.png")
 var iconCursorNone = load("res://main/ui/cursor-none.png")
 var iconCursorSpell = load("res://main/ui/force.png")
 
+func _ready():
+	var iconListContainer = G.battleController.get_node('UnitIconSpellList/ScrollContainer/HBoxContainer')
+
+	var icons = iconListContainer.get_children()
+
+	for item in icons:
+		item.queue_free()
+
 func checkCantUsePlayerSelectedSpell():
 	return currentPlayerSelectSpell && unitMouseExited && currentPlayerSelectSpell.targetType == Spell.targetTypeList.enemy && !currentPlayerSelectSpell.caster.unitIsEnemy(unitMouseExited)
 
@@ -50,6 +58,7 @@ func unitMouseEnteredHandler(unit):
 		unitMouseExited = unit
 
 func unitMouseLeftClickHandler(unit):
+	print(unit.unitName, 4444)
 	if currentPlayerSelectSpell && unit:
 		var playerHero = getCurrPlayerUnit()
 		if (playerHero && !checkCantUsePlayerSelectedSpell()):
@@ -73,16 +82,16 @@ func initUnitsIcons():
 		icon.init(unit)
 
 func initPlayerUnitIconsSpells():
-	var iconListContainer = G.battleController.get_node('UnitIconSpellList/ScrollContainer/HBoxContainer')
-	
-	var icons = iconListContainer.get_children()
-
-	for item in icons:
-		item.queue_free()
-
 	var unit = getCurrPlayerUnit()
 	
 	if unit:
+		var iconListContainer = G.battleController.get_node('UnitIconSpellList/ScrollContainer/HBoxContainer')
+	
+		var icons = iconListContainer.get_children()
+
+		for item in icons:
+			item.queue_free()
+
 		for spell in unit.spells:
 			var icon = heroIconSpellClass.instantiate()
 			iconListContainer.add_child(icon)

@@ -199,9 +199,8 @@ libraries = {
 "": SubResource("AnimationLibrary_e6pxm")
 }
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Control" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = -17.0
 offset_top = -57.0
 offset_right = 22.0
