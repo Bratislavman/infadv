@@ -17,6 +17,14 @@ func init(command):
 	if _animation_player:
 		_animation_player.play('stay')
 
+func remove():
+	var index = command.effects.find(self)
+	if index > -1:
+		command.effects.remove_at(index)
+
+	command = null
+
+	queue_free()		
+
 func endAnimation():
-	command.removeEffect(self)
-	queue_free()
+	remove()

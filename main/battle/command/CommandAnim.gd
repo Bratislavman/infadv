@@ -31,16 +31,18 @@ func remove():
 	var index = caster.commands.find(self)
 	if index > -1:
 		caster.commands.remove_at(index)
-		if effects.size():
-			for effect in effects:
-				removeEffect(effect)
-		queue_free()	
 
-func removeEffect(obj):
-	var index = effects.find(obj)
-	if index > -1:
-		effects[index].queue_free()
-		effects.remove_at(index)
+	if effects.size():
+		for effect in effects:
+			effect.remove()
+
+	caster = null
+	target = null
+	animationFunc = null
+	effects = []
+	isActiveBeholderEffects = false
+
+	queue_free()
 
 func commandStart():
 	caster.playAnim(animationName)

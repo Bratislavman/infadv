@@ -2,6 +2,8 @@ extends Control
 
 class_name Unit
 
+static var unitTypeList
+
 var unitName = ''
 var icon
 var commands:Array = []
@@ -11,6 +13,7 @@ var effects = []
 var side
 var actionCount = 1
 var isPlayerHero = false
+var isFly = false
 var scaleXSize = null
 
 @onready var _animation_player = $AnimationPlayer
@@ -71,6 +74,11 @@ func remove():
 			spell.remove()
 	spells = []
 
+	if effects.size():
+		for effect in effects:
+			effect.remove()
+	effects = []
+
 	queue_free()
 
 func checkCurrentCommand(command):
@@ -115,7 +123,13 @@ func reloadSpells():
 	for spell in spells:
 		spell.reload()
 
+func useEffects():
+	if effects.size():
+		for effect in effects:
+			effect.effectAction()
+
 func ai():
+	# TODO потом сделать, что бы сначала выбирало цель, потом в вайле подбирало подходящий спел(например атака по лет противнику)
 	var activeSpells = []
 
 	for spell in spells:

@@ -133,7 +133,7 @@ func nextUnit():
 
 	var unit = getCurrUnit()
 	unit.reloadSpells()
-	print(unit.unitName, 'NEXTEN UNUT')
+	unit.useEffects()
 
 func getEnemyList(unit, onlyLive = true):
 	var list = []

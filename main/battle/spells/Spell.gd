@@ -34,9 +34,18 @@ func postSpellAction():
 func reload():
 	if (currentReloadCount > 0):
 		currentReloadCount -= 1
+
+func checkCanSpell(target):
+	if target && target.effects.size():
+		for effect in target.effects:
+			print(effect, self)
+			if effect is TimeEffectNoneSword && self is SpellAttack:
+				return false
+
+	return true	
 		
-func isActive():
-	return currentReloadCount == 0
+func isActive(target = null):
+	return currentReloadCount == 0 && checkCanSpell(target)
 
 func remove():
 	queue_free()

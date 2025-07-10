@@ -6,7 +6,7 @@ var spell: Spell = null
 
 func cantPlayerUnitUseSpell():
 	var hero = G.battleController.getCurrPlayerUnit()
-	return !spell.isActive() || hero == null || (hero && (hero.commands.size() > 0 || hero.actionCount == 0))
+	return !spell.isActive(G.battleController.unitMouseExited) || hero == null || (hero && (hero.commands.size() > 0 || hero.actionCount == 0))
 
 func init(spell):
 	self.spell = spell
