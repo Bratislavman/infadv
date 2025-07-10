@@ -39,7 +39,6 @@ func remove():
 func removeEffect(obj):
 	var index = effects.find(obj)
 	if index > -1:
-		print(9999)
 		effects[index].queue_free()
 		effects.remove_at(index)
 

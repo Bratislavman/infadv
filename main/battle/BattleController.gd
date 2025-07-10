@@ -80,6 +80,7 @@ func initUnitsIcons():
 		iconListContainer.add_child(icon)
 		icon.init(unit)
 
+# TODO всегда нужно при иниц боя ставить персонажа игрока, что бы юи вверху слева инициализировался!
 func initPlayerUnitIconsSpells():
 	var unit = getCurrPlayerUnit()
 	
@@ -100,7 +101,6 @@ func start(units):
 	unitList = units
 	isActive = true
 	initUnitsIcons()
-	initPlayerUnitIconsSpells()
 	
 func stop():
 	isActive = false
@@ -124,18 +124,16 @@ func isCurrUnit(id):
 	var unit = getCurrUnit()
 	if (unit):
 		return unit.get_instance_id() == id
-	return false
 
 func nextUnit():
 	var nextIndex = currentUnitIndex + 1
 	if (nextIndex > (unitList.size()-1)):
 		nextIndex = 0
 	currentUnitIndex = nextIndex
-	
-	initPlayerUnitIconsSpells()
 
 	var unit = getCurrUnit()
 	unit.reloadSpells()
+	print(unit.unitName, 'NEXTEN UNUT')
 
 func getEnemyList(unit, onlyLive = true):
 	var list = []

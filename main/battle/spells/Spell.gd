@@ -10,6 +10,7 @@ static var targetTypeList = {
 
 var target
 var icon
+var spellName = ''
 var caster
 var type = ''
 var reloadCount = 1

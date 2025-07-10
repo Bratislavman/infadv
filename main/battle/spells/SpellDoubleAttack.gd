@@ -4,6 +4,7 @@ class_name SpellDoubleAttack
 
 func _init(caster):
 	icon = preload("res://main/battle/icons/attack.jpg") 
+	spellName = 'Двойная атака' 
 	reloadCount = 3
 	super._init(caster)
 

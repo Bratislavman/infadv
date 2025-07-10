@@ -4,6 +4,7 @@ class_name SpellHealth
 
 func _init(caster):
 	icon = preload("res://main/battle/icons/heal.jpg") 
+	spellName = 'Лечение' 
 	reloadCount = 3
 	targetType = Spell.targetTypeList.frendly
 	super._init(caster)

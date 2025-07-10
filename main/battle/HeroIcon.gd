@@ -1,8 +1,9 @@
 extends Sprite2D
 
-var icon
+class_name HeroIcon
 
 func _process(delta: float) -> void:
-	var unit = G.battleController.getCurrUnit()
-	if unit && unit.isPlayerHero && unit.icon != icon:
+	var unit = G.battleController.getCurrPlayerUnit()
+	if unit && unit.icon != texture:
 		texture = unit.icon
+		G.battleController.initPlayerUnitIconsSpells()

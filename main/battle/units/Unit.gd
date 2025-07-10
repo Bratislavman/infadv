@@ -109,6 +109,7 @@ func useSpell(spell, targetList = []):
 		spell.action(target)
 
 	actionCount-=1
+	G.battleController.playerSelectSpell(null)
 
 func reloadSpells():
 	for spell in spells:
@@ -129,6 +130,7 @@ func ai():
 func _process(delta: float) -> void:
 	if G.battleController.isCurrUnit(get_instance_id()):
 		if (isPlayerHero):
+			pass
 			#если перс мёртв, без команд и очков действий, то переход хода 
 			if (commands.size() == 0 && actionCount == 0) || isDeath():
 				endTurn()

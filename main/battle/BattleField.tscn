@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main/battle/BattleController.gd" id="1_e7rs0"]
 [ext_resource type="Texture2D" uid="uid://cu4kv35ymocbs" path="res://main/battle/bg/gateway.jpg" id="2_bdms5"]
 [ext_resource type="PackedScene" uid="uid://uslnnt18s30q" path="res://main/battle/ui/UnitIconList.tscn" id="3_ho4x0"]
-[ext_resource type="Texture2D" uid="uid://cjbcphq1irxnm" path="res://main/battle/units/leo/leo.jpg" id="3_liffv"]
+[ext_resource type="Texture2D" uid="uid://dctus1jv0bt7p" path="res://main/battle/units/bandit/bandit.jpg" id="4_qatry"]
 [ext_resource type="PackedScene" uid="uid://c4kntplouiqwk" path="res://main/battle/ui/UnitIconSpellList.tscn" id="4_wqsxx"]
 [ext_resource type="Script" path="res://main/battle/HeroIcon.gd" id="4_ykns3"]
 [ext_resource type="Texture2D" uid="uid://cx2a8faltfco2" path="res://main/battle/icons/settings.jpg" id="6_6bpbx"]
@@ -39,7 +39,7 @@ offset_bottom = 26.0
 
 [node name="Hero" type="Sprite2D" parent="."]
 position = Vector2(50, 49)
-texture = ExtResource("3_liffv")
+texture = ExtResource("4_qatry")
 script = ExtResource("4_ykns3")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
