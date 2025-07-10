@@ -38,9 +38,6 @@ func reload():
 func isActive():
 	return currentReloadCount == 0
 
-func isReload():
-	return currentReloadCount > 0
-
 func remove():
 	queue_free()
 
