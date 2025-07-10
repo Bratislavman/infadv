@@ -39,6 +39,7 @@ func remove():
 func removeEffect(obj):
 	var index = effects.find(obj)
 	if index > -1:
+		print(9999)
 		effects[index].queue_free()
 		effects.remove_at(index)
 
@@ -47,6 +48,19 @@ func commandStart():
 
 func commandProcess():
 	pass	
+
+func addSpecEffect(hitClass, position = SpecEffectAnim.positionList.middle):
+	var effect = hitClass.instantiate()
+
+	G.battleController.add_child(effect)
+	effect.position = target.position
+
+	if position == SpecEffectAnim.positionList.middle:
+		effect.position.y -= target._mouse_hendler_area.size.y/2
+
+	effect.init(self)
+
+	effects.append(effect)
 
 func _process(delta: float) -> void:
 	if phase == 0 && caster.checkCurrentCommand(self):

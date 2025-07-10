@@ -41,7 +41,7 @@ func _ready():
 		item.queue_free()
 
 func checkCantUsePlayerSelectedSpell():
-	return currentPlayerSelectSpell && unitMouseExited && currentPlayerSelectSpell.targetType == Spell.targetTypeList.enemy && !currentPlayerSelectSpell.caster.unitIsEnemy(unitMouseExited)
+	return currentPlayerSelectSpell && unitMouseExited && !currentPlayerSelectSpell.checkCorrectTarget(unitMouseExited)
 
 func beholderMouseIcon():
 	if checkCantUsePlayerSelectedSpell():
@@ -58,7 +58,6 @@ func unitMouseEnteredHandler(unit):
 		unitMouseExited = unit
 
 func unitMouseLeftClickHandler(unit):
-	print(unit.unitName, 4444)
 	if currentPlayerSelectSpell && unit:
 		var playerHero = getCurrPlayerUnit()
 		if (playerHero && !checkCantUsePlayerSelectedSpell()):
@@ -148,6 +147,13 @@ func getEnemyList(unit, onlyLive = true):
 	for enemy in unitList:
 		if (enemy.side == side && (onlyLive && enemy.isLive())):
 			list.append(enemy)
+	return list
+
+func getFriendList(unit, onlyLive = true):
+	var list = []
+	for hero in unitList:
+		if (hero.side == unit.side && (onlyLive && hero.isLive())):
+			list.append(hero)
 	return list
 
 func beholderEndBattle():

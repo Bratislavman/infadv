@@ -45,6 +45,10 @@ func dmg(damage):
 	attributes[Attributes.attrNameHp].minus(damage)
 	if (isDeath()):
 		playAnim("death")
+
+func health(hp):
+	if (isLive()):
+		attributes[Attributes.attrNameHp].plus(hp)	
 	
 func playAnim(animName):
 	if _animation_player:
@@ -79,20 +83,30 @@ func endTurn():
 func unitIsEnemy(unit):
 	return side != unit.side
 
+func unitIsFriend(unit):
+	return !unitIsEnemy(unit)
+
 func useSpell(spell, targetList = []):
 	if spell && spell.isActive():
-		if spell.targetType == Spell.targetTypeList.enemy:
-			var target = null
+		var target = null
 
-			# либо цель одна, либо берём случайного врага
-			if targetList.size():
-				target = targetList[0]
-			else:
-				var enemyList = G.battleController.getEnemyList(self)
-				target = enemyList.pick_random()
+		# либо цель одна, либо берём случайного персонажа(для ИИ)
+		if targetList.size():
+			target = targetList[0]
+		else:
+			var unitList = []
 
-			spriteInvert(target)
-			spell.action(target)
+			if spell.targetType == Spell.targetTypeList.enemy:
+				unitList = G.battleController.getEnemyList(self)
+
+			if spell.targetType == Spell.targetTypeList.frendly:
+				unitList = G.battleController.getFriendList(self)
+
+			target = unitList.pick_random()	
+
+		spriteInvert(target)
+
+		spell.action(target)
 
 	actionCount-=1
 

@@ -2,6 +2,12 @@ extends Node2D
 
 class_name SpecEffectAnim
 
+static var positionList = {
+	'up': 'up',
+	'middle': 'middle',
+	'down': 'down',
+}
+
 var command = null
 
 @onready var _animation_player = $AnimationPlayer

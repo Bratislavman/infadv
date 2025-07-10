@@ -42,3 +42,12 @@ func isReload():
 
 func remove():
 	queue_free()
+
+func checkTargetEnemy(target):
+	return targetType == Spell.targetTypeList.enemy && caster.unitIsEnemy(target)
+
+func checkTargetFrendly(target):
+	return targetType == Spell.targetTypeList.frendly && caster.unitIsFriend(target)
+
+func checkCorrectTarget(target):
+	return checkTargetEnemy(target) || checkTargetFrendly(target) 
