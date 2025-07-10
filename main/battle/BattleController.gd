@@ -51,14 +51,13 @@ func unitMouseEnteredHandler(unit):
 
 func unitMouseLeftClickHandler(unit):
 	if currentPlayerSelectSpell && unit:
-		var playerHero = getCurrUnit()
-		if (playerHero.isPlayerHero && !checkCantUsePlayerSelectedSpell()):
+		var playerHero = getCurrPlayerUnit()
+		if (playerHero && !checkCantUsePlayerSelectedSpell()):
 			playerHero.useSpell(currentPlayerSelectSpell, [unit])
 			currentPlayerSelectSpell = null
 
 func playerSelectSpell(spell):
 	currentPlayerSelectSpell = spell
-
 
 func initUnitsIcons():
 	var iconListContainer = G.battleController.get_node('UnitIconList/ScrollContainer/HBoxContainer')
@@ -81,9 +80,9 @@ func initPlayerUnitIconsSpells():
 	for item in icons:
 		item.queue_free()
 
-	var unit = getCurrUnit()
+	var unit = getCurrPlayerUnit()
 	
-	if unit.isPlayerHero:
+	if unit:
 		for spell in unit.spells:
 			var icon = heroIconSpellClass.instantiate()
 			iconListContainer.add_child(icon)
@@ -106,6 +105,12 @@ func getCurrUnit():
 	if unitList.size():
 		return unitList[currentUnitIndex]
 	return null
+
+func getCurrPlayerUnit():
+	var unit = getCurrUnit()
+	if unit && unit.isPlayerHero:
+		return unit
+	return null	
 	
 func isCurrUnit(id):
 	var unit = getCurrUnit()
@@ -191,3 +196,8 @@ func action():
 	if (isActive):
 		beholderEndBattle()
 		beholderMouseIcon()		
+
+func _on_end_turn_button_down() -> void:
+	var unit = getCurrPlayerUnit()
+	if unit:
+		unit.endTurn()
