@@ -2,7 +2,10 @@ extends Control
 
 class_name Unit
 
-static var unitTypeList
+static var unitTypeList = {
+	'animal': 'animal',
+	'flying': 'flying',
+}
 
 var unitName = ''
 var icon
@@ -13,8 +16,9 @@ var effects = []
 var side
 var actionCount = 1
 var isPlayerHero = false
-var isFly = false
 var scaleXSize = null
+# тут всё что-угодно, например тип животное или то, что существо летает
+var tags: Array[String] = []
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D

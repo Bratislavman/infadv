@@ -8,5 +8,5 @@ func init():
 	icon = preload("res://main/battle/units/leo/leo.jpg")
 	unitName = 'Лео'
 	isPlayerHero = true
-	spells = [SpellAttack.new(self), SpellHealth.new(self), SpellSwordThrow.new(self)]
+	spells = [SpellAttack.new(self), SpellHealth.new(self), SpellSwordThrow.new(self), SpellShoot.new(self)]
 	super.init()

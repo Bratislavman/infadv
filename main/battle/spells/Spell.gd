@@ -15,7 +15,10 @@ var caster
 var type = ''
 var reloadCount = 1
 var currentReloadCount = 0
+# тип юнита для исп-я спела
 var targetType = Spell.targetTypeList.enemy
+# теги юнита для исп-я спла() unitTypeList
+var targetTags = []
 
 func _init(caster):
 	self.caster = caster	
@@ -43,8 +46,20 @@ func checkCanSpellByEffects(target):
 
 	return true
 
+func checkCanSpellByTargetType(target):
+	if target:
+		if target.tags.size() > 0:
+			if targetTags.size() > 0:
+				for tag in targetTags:
+					if target.tags.find(tag) > -1:
+						return true
+
+			return false 
+		
+	return true
+
 func checkCanSpell(target):
-	return checkCanSpellByEffects(target) && checkCanSpellByEffects(caster)
+	return checkCanSpellByEffects(target) && checkCanSpellByEffects(caster) && checkCanSpellByTargetType(caster)
 		
 func isActive(target = null):
 	return currentReloadCount == 0 && checkCanSpell(target)

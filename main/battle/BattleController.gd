@@ -108,6 +108,10 @@ func stop():
 		unit.remove()
 	unitList = []
 	currentUnitIndex = 0
+	unitSideList = []
+	currentPlayerSelectSpell = null
+	unitMouseExited = null
+
 
 func getCurrUnit():
 	if unitList.size():
