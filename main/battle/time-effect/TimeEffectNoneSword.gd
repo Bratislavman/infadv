@@ -4,5 +4,5 @@ extends TimeEffect
 class_name TimeEffectNoneSword
 
 func _init(target):
-	countTurns = 1
+	countTurns = 3
 	super._init(target)

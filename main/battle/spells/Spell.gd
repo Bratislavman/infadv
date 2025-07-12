@@ -35,14 +35,16 @@ func reload():
 	if (currentReloadCount > 0):
 		currentReloadCount -= 1
 
-func checkCanSpell(target):
+func checkCanSpellByEffects(target):
 	if target && target.effects.size():
 		for effect in target.effects:
-			print(effect, self)
 			if effect is TimeEffectNoneSword && self is SpellAttack:
 				return false
 
-	return true	
+	return true
+
+func checkCanSpell(target):
+	return checkCanSpellByEffects(target) && checkCanSpellByEffects(caster)
 		
 func isActive(target = null):
 	return currentReloadCount == 0 && checkCanSpell(target)
