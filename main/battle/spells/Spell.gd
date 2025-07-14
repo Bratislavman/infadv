@@ -59,13 +59,17 @@ func checkCanSpellByTargetType(target):
 	return true
 
 func checkCanSpell(target):
-	return checkCanSpellByEffects(target) && checkCanSpellByEffects(caster) && checkCanSpellByTargetType(caster)
+	return checkCanSpellByEffects(target) && checkCanSpellByEffects(caster) && checkCanSpellByTargetType(target)
 		
 func isActive(target = null):
 	return currentReloadCount == 0 && checkCanSpell(target)
 
 func remove():
+	target = null
+	icon = null
+	caster = null
 	queue_free()
+
 
 func checkTargetEnemy(target):
 	return targetType == Spell.targetTypeList.enemy && caster.unitIsEnemy(target)
@@ -74,4 +78,4 @@ func checkTargetFrendly(target):
 	return targetType == Spell.targetTypeList.frendly && caster.unitIsFriend(target)
 
 func checkCorrectTarget(target):
-	return checkTargetEnemy(target) || checkTargetFrendly(target) 
+	return (checkTargetEnemy(target) || checkTargetFrendly(target)) && isActive(target)
