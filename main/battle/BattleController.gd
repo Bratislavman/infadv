@@ -28,6 +28,9 @@ var unitMouseExited = null
 var heroIconClass = preload("res://main/battle/ui/UnitIcon.tscn")
 var heroIconSpellClass = preload("res://main/battle/ui/UnitIconSpell.tscn")
 
+var unitIconSideEnemy = preload("res://main/battle/ui/enemy.jpg")
+var unitIconSideFriend = preload("res://main/battle/ui/friend.jpg")
+
 var iconCursorDefault = load("res://main/ui/cursor.png")
 var iconCursorNone = load("res://main/ui/cursor-none.png")
 var iconCursorSpell = load("res://main/ui/force.png")

@@ -7,7 +7,7 @@ func _init(caster):
 	spellName = 'Выстрел' 
 	reloadCount = 3
 	super._init(caster)
-	targetTags = [Unit.unitTypeList.flying]
+	targetTags = [Unit.unitTypeList.flying, Unit.unitTypeList.foot]
 
 func postSpellAction():
 	CommandAttackShoot.new(caster, target)

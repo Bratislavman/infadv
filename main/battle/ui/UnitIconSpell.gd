@@ -13,12 +13,13 @@ func init(spell):
 	_icon.texture_normal = spell.icon
 
 func _process(delta: float) -> void:
-	if cantPlayerUnitUseSpell():
-		modulate = Color(0.234, 0.234, 0.234, 1)
-	elif self.spell == G.battleController.currentPlayerSelectSpell: 
-		modulate = Color(0.955, 0.957, 0.359, 1)	
-	else:
-		modulate = Color.WHITE
+	if G.battleController.isActive:
+		if cantPlayerUnitUseSpell():
+			modulate = Color(0.234, 0.234, 0.234, 1)
+		elif self.spell == G.battleController.currentPlayerSelectSpell: 
+			modulate = Color(0.955, 0.957, 0.359, 1)	
+		else:
+			modulate = Color.WHITE
 
 func _on_icon_button_down() -> void:
 	if !cantPlayerUnitUseSpell():

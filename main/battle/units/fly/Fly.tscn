@@ -56,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2(7, 95, 46, 74), Rect2(68, 121, 39, 39)]
+"values": [Rect2(772, 121, 39, 39), Rect2(826, 95, 46, 74)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -124,7 +124,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Rect2(7, 95, 46, 74)]
+"values": [Rect2(826, 95, 46, 74)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -190,10 +190,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.00770673, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Rect2(7, 1, 49, 61), Rect2(7, 1, 49, 61), Rect2(61, 43, 47, 52), Rect2(118, 38, 49, 23)]
+"values": [Rect2(712, 38, 49, 23), Rect2(771, 43, 47, 52), Rect2(823, 1, 49, 61)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -202,10 +202,10 @@ tracks/1/path = NodePath("Sprite2D:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(1, -11), Vector2(1, 21), Vector2(1, 8)]
+"values": [Vector2(1, -11)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false

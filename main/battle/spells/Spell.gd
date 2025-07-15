@@ -17,8 +17,10 @@ var reloadCount = 1
 var currentReloadCount = 0
 # тип юнита для исп-я спела
 var targetType = Spell.targetTypeList.enemy
-# теги юнита для исп-я спла() unitTypeList
-var targetTags = []
+# теги юнита для исп-я спла() unitTypeList. успех - хоть одно совпадение тега
+var targetTags = [Unit.unitTypeList.foot]
+# как выше, но успех - все совпадения тегов
+var targetTagsStrict = []
 
 func _init(caster):
 	self.caster = caster	
@@ -46,16 +48,23 @@ func checkCanSpellByEffects(target):
 
 	return true
 
+func checkUnitTagsStrict(accum, tag):
+	if targetTagsStrict.find(tag) > -1:
+		return accum + 1
+
+	return accum
+
 func checkCanSpellByTargetType(target):
 	if target:
-		if target.tags.size() > 0:
-			if targetTags.size() > 0:
-				for tag in targetTags:
-					if target.tags.find(tag) > -1:
-						return true
+		if targetTagsStrict.size():
+			return target.tags.reduce(checkUnitTagsStrict, 0) == targetTagsStrict.size()
 
-			return false 
-		
+		if targetTags.size():
+			for tag in targetTags:
+				if target.tags.find(tag) > -1:
+					return true
+			return false
+
 	return true
 
 func checkCanSpell(target):
@@ -69,7 +78,6 @@ func remove():
 	icon = null
 	caster = null
 	queue_free()
-
 
 func checkTargetEnemy(target):
 	return targetType == Spell.targetTypeList.enemy && caster.unitIsEnemy(target)

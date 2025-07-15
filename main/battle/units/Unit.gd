@@ -5,6 +5,7 @@ class_name Unit
 static var unitTypeList = {
 	'animal': 'animal',
 	'flying': 'flying',
+	'foot': 'foot',
 }
 
 var unitName = ''
@@ -13,12 +14,14 @@ var commands:Array = []
 var attributes:Dictionary = {}
 var spells:Array[Spell] = [SpellAttack.new(self)]
 var effects = []
+# сторона боя
 var side
 var actionCount = 1
+# значит перс под прямым управлением через интерфейс
 var isPlayerHero = false
 var scaleXSize = null
 # тут всё что-угодно, например тип животное или то, что существо летает
-var tags: Array[String] = []
+var tags: Array[String] = [Unit.unitTypeList.foot]
 
 @onready var _animation_player = $AnimationPlayer
 @onready var _sprite = $Sprite2D

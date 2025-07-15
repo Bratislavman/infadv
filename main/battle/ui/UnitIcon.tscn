@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://shr5flshc5yp"]
+[gd_scene load_steps=6 format=3 uid="uid://shr5flshc5yp"]
 
 [ext_resource type="Texture2D" uid="uid://b1wxumych81nd" path="res://main/battle/units/max/max.jpg" id="1_6rnff"]
 [ext_resource type="Script" path="res://main/battle/ui/UnitIcon.gd" id="1_nbbx5"]
 [ext_resource type="Texture2D" uid="uid://c5yoyqd783ev4" path="res://main/battle/ui/healthbar.jpg" id="2_imjul"]
 [ext_resource type="Texture2D" uid="uid://bd767v0qh5ntx" path="res://main/battle/ui/healthbarjpg.jpg" id="3_r0lpp"]
+[ext_resource type="Texture2D" uid="uid://lhebxqxqroh0" path="res://main/battle/ui/friend.jpg" id="5_1y4w2"]
 
 [node name="UnitIcon" type="Control"]
 custom_minimum_size = Vector2(38, 0)
@@ -30,3 +31,12 @@ value = 100.0
 texture_under = ExtResource("2_imjul")
 texture_progress = ExtResource("3_r0lpp")
 texture_progress_offset = Vector2(22, 16)
+
+[node name="Side" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 26.0
+offset_right = 86.0
+offset_bottom = 61.0
+scale = Vector2(0.189487, 0.21457)
+texture_normal = ExtResource("5_1y4w2")

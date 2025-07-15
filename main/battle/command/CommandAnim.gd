@@ -59,6 +59,9 @@ func addSpecEffect(hitClass, position = SpecEffectAnim.positionList.middle):
 	if position == SpecEffectAnim.positionList.middle:
 		effect.position.y -= target._mouse_hendler_area.size.y/2
 
+	if target is Fly:
+		effect.position.y -= target._mouse_hendler_area.size.y
+
 	effect.init(self)
 
 	effects.append(effect)

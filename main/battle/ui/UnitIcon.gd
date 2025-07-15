@@ -2,6 +2,7 @@ extends Control
 
 @onready var _icon = $Icon
 @onready var _bar = $Bar
+@onready var _side = $Side
 
 var unit
 
@@ -18,3 +19,8 @@ func _process(delta: float) -> void:
 			modulate = Color(0.955, 0.957, 0.359, 1)
 		else:
 			modulate = Color.WHITE
+
+		if unit.side ==  G.battleController.BATTLE_SIDES.HERO:
+			_side.texture_normal = G.battleController.unitIconSideFriend
+		else:
+			_side.texture_normal = G.battleController.unitIconSideEnemy
