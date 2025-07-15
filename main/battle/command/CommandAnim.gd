@@ -31,13 +31,3 @@ func addSpecEffect(hitClass, position = SpecEffectAnim.positionList.middle):
 	G.battleController.addEffectToScene(effect, target, position)
 	effect.init(self)
 	effects.append(effect)
-func _process(delta: float) -> void:
-	if phase == 0 && caster.checkCurrentCommand(self):
-		commandStart()
-		phase = 1 
-
-	if phase == 1:	
-		commandProcess()
-
-	if isActiveBeholderEffects && effects.size() == 0:
-		remove()
