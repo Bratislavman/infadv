@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b30rhqtesv7ki"]
+[gd_scene load_steps=6 format=3 uid="uid://cauxmjgypj66a"]
 
-[ext_resource type="Texture2D" uid="uid://caqg7m12343c2" path="res://main/effects/lightning/Lightning.png" id="1_uppwr"]
+[ext_resource type="Script" path="res://main/battle/spec-effects/SpecEffectAnim.gd" id="1_6q65c"]
+[ext_resource type="Texture2D" uid="uid://fw4bbhg586s6" path="res://main/battle/effects/hit/hit.png" id="1_276kg"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001
@@ -43,7 +44,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_qxn47"]
 resource_name = "stay"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,10 +52,10 @@ tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Rect2(0, -3, 86, 68)]
+"values": [Rect2(21, 87, 16, 21), Rect2(66, 26, 22, 22), Rect2(65, 80, 27, 35)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +67,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(8, 12)]
+"values": [Vector2(4, 18)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -75,10 +76,24 @@ tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.533333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.566667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"endAnimation"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6pxm"]
@@ -88,11 +103,13 @@ _data = {
 }
 
 [node name="Rex" type="Node2D"]
+script = ExtResource("1_6q65c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-4, -19)
-texture = ExtResource("1_uppwr")
+position = Vector2(-13.9091, -83.2727)
+scale = Vector2(3.72727, 4.18182)
+texture = ExtResource("1_276kg")
 offset = Vector2(5, 0)
 region_enabled = true
 region_rect = Rect2(478.675, 14.1289, 31.6106, 59.8342)

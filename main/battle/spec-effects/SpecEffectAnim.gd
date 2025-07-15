@@ -1,5 +1,6 @@
 extends Node2D
 
+# спецэффекта для команды
 class_name SpecEffectAnim
 
 static var positionList = {

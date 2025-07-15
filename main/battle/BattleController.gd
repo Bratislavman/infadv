@@ -115,7 +115,6 @@ func stop():
 	currentPlayerSelectSpell = null
 	unitMouseExited = null
 
-
 func getCurrUnit():
 	if unitList.size():
 		return unitList[currentUnitIndex]
@@ -139,8 +138,7 @@ func nextUnit():
 	currentUnitIndex = nextIndex
 
 	var unit = getCurrUnit()
-	unit.reloadSpells()
-	unit.useEffects()
+	unit.startTurn()
 
 func getEnemyList(unit, onlyLive = true):
 	var list = []
@@ -221,3 +219,13 @@ func _on_end_turn_button_down() -> void:
 	var unit = getCurrPlayerUnit()
 	if unit:
 		unit.endTurn()
+
+# добавление эффекта или спецэффекта на сцену в позицию юнита
+func addEffectToScene(effect, target, position = SpecEffectAnim.positionList.middle):
+	add_child(effect)
+	effect.position = target.position
+	if position == SpecEffectAnim.positionList.middle:
+		effect.position.y -= target._mouse_hendler_area.size.y/2
+	if target is Fly || position == SpecEffectAnim.positionList.up:
+		effect.position.y -= target._mouse_hendler_area.size.y
+	return effect

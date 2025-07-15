@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cauxmjgypj66a"]
 
-[ext_resource type="Texture2D" uid="uid://dh3unhv30s2jy" path="res://main/effects/explosion/explosion.png" id="1_xq1n4"]
+[ext_resource type="Texture2D" uid="uid://dh3unhv30s2jy" path="res://main/battle/effects/explosion/explosion.png" id="1_xq1n4"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001

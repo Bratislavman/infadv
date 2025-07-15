@@ -10,7 +10,7 @@ static var unitTypeList = {
 
 var unitName = ''
 var icon
-var commands:Array = []
+var commands:Array[CommandParent] = []
 var attributes:Dictionary = {}
 var spells:Array[Spell] = [SpellAttack.new(self)]
 var effects = []
@@ -86,6 +86,11 @@ func remove():
 			effect.remove()
 	effects = []
 
+	
+	var index = G.battleController.unitList.find(self)
+	if index > -1:
+		G.battleController.unitList.remove_at(index)
+
 	queue_free()
 
 func checkCurrentCommand(command):
@@ -124,16 +129,27 @@ func useSpell(spell, targetList = []):
 		spell.action(target)
 
 	actionCount-=1
+
 	G.battleController.playerSelectSpell(null)
+
+func startTurn():
+	reloadSpells()
+	useEffects()
 
 func reloadSpells():
 	for spell in spells:
 		spell.reload()
 
 func useEffects():
+	var haveEndTurn = false
 	if effects.size():
 		for effect in effects:
 			effect.effectAction()
+			if effect.isEndTurnUnit:
+				haveEndTurn = true
+	
+	if haveEndTurn:
+		CommandEndTurn.new(self)
 
 func ai():
 	# TODO потом сделать, что бы сначала выбирало цель, потом в вайле подбирало подходящий спел(например атака по лет противнику)
@@ -151,7 +167,6 @@ func ai():
 func _process(delta: float) -> void:
 	if G.battleController.isCurrUnit(get_instance_id()):
 		if (isPlayerHero):
-			pass
 			#если перс мёртв, без команд и очков действий, то переход хода 
 			if (commands.size() == 0 && actionCount == 0) || isDeath():
 				endTurn()

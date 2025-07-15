@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhmdwckgrm738"]
 
-[ext_resource type="Texture2D" uid="uid://cl10txcec87qy" path="res://main/units/bandit/Bandit.png" id="1_6iho3"]
+[ext_resource type="Texture2D" uid="uid://cl10txcec87qy" path="res://main/battle/units/bandit/Bandit.png" id="1_6iho3"]
 
 [sub_resource type="Animation" id="Animation_8e5o3"]
 length = 0.001
