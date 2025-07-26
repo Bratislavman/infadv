@@ -13,10 +13,13 @@ func postSpellAction():
 	CommandAttackThrowSword.new(caster, target)
 
 func getInfo():
-	var dmgConst = caster.attributes[Attributes.attrNameDmg].value
-	var count = ModalInfo.formatText('Перезарядка: ' + G.pluralizeCountMessage(reloadCount))
-	var text = ModalInfo.formatText('Наносит воздушной/наземной цели урон [color=#ED2600]' + str(dmgConst) + ' ед.[/color] ')
-	var title = '[b]' + '[b]Бросок меча:' + '[/b]'
+	var dmgConst = str(caster.attributes[Attributes.attrNameDmg].value)
+
+	var title = '[b]Бросок меча:[/b]'
+	var count = ' Перезарядка: {value}'.format({"value": G.pluralizeCountMessage(reloadCount)})
+	var text = " Наносит воздушной/наземной цели урон [color=#ED2600] {value} ед.[/color]".format({"value": dmgConst})
+
 	if currentReloadCount > 0:
-		title = '[b]' + 'Бросок меча' + '(Пер.:' + G.pluralizeCountMessage(currentReloadCount) + '):' +  '[/b]'
-	return title + text	+ count
+		title = '[b]Бросок меча(Пер-ка: {value}):[/b] '.format({"value": G.pluralizeCountMessage(currentReloadCount)})
+
+	return ModalInfo.formatText(title + text + count)
