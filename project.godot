@@ -27,3 +27,7 @@ window/size/resizable=false
 window/size/borderless=true
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://main/ui/cursor.png"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://main/translate/tranlates.en.translation", "res://main/translate/tranlates.ru.translation")

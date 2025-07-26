@@ -2,17 +2,12 @@ extends Control
 
 class_name DmgSpecEff
 
-var dmg = ''
-
 var counter = 120
 
 @onready var _label = $Label
 
 func init(dmg):
-	self.dmg = str(dmg)
-
-func _ready():
-	_label.text = dmg
+	_label.text = str(dmg)
 
 func _process(delta: float) -> void:
 	position.y -= 3

@@ -9,6 +9,7 @@ static var unitTypeList = {
 }
 
 var unitName = ''
+var unitBio = ''
 var icon
 var commands:Array[CommandParent] = []
 var attributes:Dictionary = {}
@@ -33,6 +34,30 @@ func init():
 
 func _ready() -> void:
 	init()
+
+func spellsInfo():
+	var text = ''
+
+	if spells.size():
+		text += ModalInfo.formatText('[font_size=18][b]Способности:[/b][/font_size]', true)
+		for spell in spells:
+			text += spell.getInfo()
+
+	return text
+
+func effectsInfo():
+	var text = '[p] [/p]'
+
+	if effects.size():
+		text += ModalInfo.formatText('[font_size=18][b]Эффекты:[/b][/font_size]', true)
+		for effect in effects:
+			text += effect.getInfo()
+
+	return text	
+
+func unitInfo():
+	print(22222)
+	return ModalInfo.formatText(unitBio, true) + spellsInfo()  + effectsInfo()
 
 # инвертируем спрайт к цели во время действия
 func spriteInvert(target) -> void:
@@ -85,7 +110,6 @@ func remove():
 		for effect in effects:
 			effect.remove()
 	effects = []
-
 	
 	var index = G.battleController.unitList.find(self)
 	if index > -1:

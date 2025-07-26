@@ -55,8 +55,8 @@ texture = SubResource("CanvasTexture_b0ol4")
 [node name="UnitIconList" parent="." instance=ExtResource("3_ho4x0")]
 offset_left = 905.0
 offset_top = 28.0
-offset_right = 905.0
-offset_bottom = 28.0
+offset_right = 1238.0
+offset_bottom = 78.0
 
 [node name="Settings" type="Sprite2D" parent="."]
 position = Vector2(1867, 56)

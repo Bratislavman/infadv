@@ -232,7 +232,7 @@ func addEffectToScene(effect, target, position = SpecEffectAnim.positionList.mid
 
 func addSpecEffectDmg(value, target):
 	var dmgEffect = preload("res://main/battle/effects/dmg/DmgSpecEff.tscn").instantiate()
-	dmgEffect.init(value)
 	add_child(dmgEffect)
+	dmgEffect.init(value)
 	dmgEffect.position = target.position
 	dmgEffect.position.y -= target._mouse_hendler_area.size.y

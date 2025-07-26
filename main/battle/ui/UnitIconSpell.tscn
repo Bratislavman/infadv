@@ -11,11 +11,7 @@ offset_right = 35.0
 offset_bottom = 50.0
 script = ExtResource("1_vu6eq")
 
-[node name="Icon" type="TextureButton" parent="."]
-layout_mode = 2
-offset_right = 60.0
-offset_bottom = 61.0
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(20, 22)
 scale = Vector2(0.655741, 0.72051)
-texture_normal = ExtResource("1_nf4ti")
-
-[connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
+texture = ExtResource("1_nf4ti")

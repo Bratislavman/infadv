@@ -25,6 +25,9 @@ var targetTagsStrict = []
 func _init(caster):
 	self.caster = caster	
 
+func getInfo():
+	return ModalInfo.formatText('')
+
 func action(target):
 	self.target = target
 	preSpellAction()

@@ -2,6 +2,9 @@ extends TimeEffect
 
 class_name TimeEffectTaming
 
+func getInfo():
+	return ModalInfo.formatText('')	
+
 func _init(target):
 	countTurns = 3
 	target.side = G.battleController.BATTLE_SIDES.HERO

@@ -7,18 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://lhebxqxqroh0" path="res://main/battle/ui/friend.jpg" id="5_1y4w2"]
 
 [node name="UnitIcon" type="Control"]
-custom_minimum_size = Vector2(38, 0)
+custom_minimum_size = Vector2(38, 38)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 38.0
+offset_bottom = 51.0
 script = ExtResource("1_nbbx5")
 
-[node name="Icon" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-offset_right = 60.0
-offset_bottom = 61.0
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(18, 21)
 scale = Vector2(0.59054, 0.668482)
-texture_normal = ExtResource("1_6rnff")
+texture = ExtResource("1_6rnff")
 
 [node name="Bar" type="TextureProgressBar" parent="."]
 layout_mode = 2
