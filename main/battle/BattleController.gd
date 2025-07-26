@@ -236,3 +236,6 @@ func addSpecEffectDmg(value, target):
 	dmgEffect.init(value)
 	dmgEffect.position = target.position
 	dmgEffect.position.y -= target._mouse_hendler_area.size.y
+
+func _on_settings_button_down() -> void:
+	G.modalMenu.visible = true

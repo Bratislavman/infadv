@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://jsysgw25rpju"]
+
+[ext_resource type="Script" path="res://main/battle/modals/menu/ModalMenu.gd" id="1_i7y14"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7wle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g0g63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tujxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td08r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emscu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b1kj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0icki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ombct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ttj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ox4jq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca77t"]
+
+[node name="ModalInfo" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i7y14")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -280.0
+offset_right = 251.0
+offset_bottom = 267.0
+color = Color(0, 0, 0, 0.502)
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -240.0
+offset_top = -269.0
+offset_right = 240.0
+offset_bottom = -246.0
+theme_override_font_sizes/font_size = 30
+text = "Меню"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 2
+offset_left = -239.0
+offset_top = -214.0
+offset_right = 243.0
+offset_bottom = 257.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Help" type="Button" parent="Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g7wle")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g0g63")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tujxi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_td08r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_emscu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8b1kj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0icki")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ombct")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2ttj3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ox4jq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ca77t")
+text = "Помощь"
+
+[node name="Exit" type="Button" parent="Control/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g7wle")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_g0g63")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tujxi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_td08r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_emscu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8b1kj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0icki")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ombct")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2ttj3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ox4jq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ca77t")
+text = "Выйти"
+
+[node name="Close" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 253.0
+offset_top = -276.0
+offset_right = 270.0
+offset_bottom = -245.0
+text = "Закрыть"
+
+[connection signal="button_down" from="Control/ScrollContainer/HBoxContainer/Help" to="." method="_on_help_button_down"]
+[connection signal="button_down" from="Control/ScrollContainer/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="Control/Close" to="." method="_on_close_button_down"]

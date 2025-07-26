@@ -58,10 +58,13 @@ offset_top = 28.0
 offset_right = 1238.0
 offset_bottom = 78.0
 
-[node name="Settings" type="Sprite2D" parent="."]
-position = Vector2(1867, 56)
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 1838.0
+offset_top = 10.0
+offset_right = 1890.0
+offset_bottom = 62.0
 scale = Vector2(1.42308, 1.48077)
-texture = ExtResource("6_6bpbx")
+texture_normal = ExtResource("6_6bpbx")
 
 [node name="EndTurn" type="Button" parent="."]
 offset_left = 487.0
@@ -70,4 +73,5 @@ offset_right = 615.0
 offset_bottom = 64.0
 text = "Закончить ход"
 
+[connection signal="button_down" from="Settings" to="." method="_on_settings_button_down"]
 [connection signal="button_down" from="EndTurn" to="." method="_on_end_turn_button_down"]

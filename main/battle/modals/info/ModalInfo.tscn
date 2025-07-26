@@ -51,14 +51,6 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[p]Обычный абзац с отступом.[/p][p]Обычный абзац с отступом[/p][br]ти"
 
-[node name="Control2" type="TextureButton" parent="Control"]
-visible = false
-layout_mode = 2
-offset_left = -254.0
-offset_top = -250.0
-offset_right = 705.0
-offset_bottom = 306.0
-
 [node name="Close" type="Button" parent="Control"]
 layout_mode = 2
 offset_left = 253.0

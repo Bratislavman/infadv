@@ -56,7 +56,6 @@ func effectsInfo():
 	return text	
 
 func unitInfo():
-	print(22222)
 	return ModalInfo.formatText(unitBio, true) + spellsInfo()  + effectsInfo()
 
 # инвертируем спрайт к цели во время действия

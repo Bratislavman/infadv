@@ -2,6 +2,7 @@ extends Node
 
 var battleController = null
 var modalInfo = null
+var modalMenu = null
 var battle = null
 var mainScene = null
 
@@ -10,6 +11,11 @@ func _ready() -> void:
 	battleController = fieldClass.instantiate()
 	battleController.visible = false
 	add_child(battleController)
+
+	var modalMenuClass = preload("res://main/battle/modals/menu/ModalMenu.tscn")
+	modalMenu = modalMenuClass.instantiate()
+	modalMenu.visible = false
+	add_child(modalMenu)
 
 	var modalInfoClass = preload("res://main/battle/modals/info/ModalInfo.tscn")
 	modalInfo = modalInfoClass.instantiate()
