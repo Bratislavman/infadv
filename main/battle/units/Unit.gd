@@ -92,7 +92,8 @@ func actionAnimation():
 	commands[0].actionAnimation()
 	
 func endAnimation():
-	commands[0].endAnimation()
+	if commands.size():
+		commands[0].endAnimation()
 
 func remove():
 	if commands.size():

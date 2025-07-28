@@ -17,17 +17,19 @@ func _init(caster: Unit, target: Unit, animationName, animationFunc):
 #в нужный кадр анимации юнита вызывется его actionAnimation, а он вызовет эту ф-цию текущей команды
 func actionAnimation():
 	animationFunc.call()
-	phase = 1
+
 # также как выше, только под конец анимации
 func endAnimation():
 	caster.playAnim("stay")
+	phase = 1
 
 func commandStart():
 	caster.playAnim(animationName)
 	super.commandStart()
 
 func addSpecEffect(hitClass, position = SpecEffectAnim.positionList.middle):
-	var effect = hitClass.instantiate()
-	G.battleController.addEffectToScene(effect, target, position)
-	effect.init(self)
-	effects.append(effect)
+	if hitClass:
+		var effect = hitClass.instantiate()
+		G.battleController.addEffectToScene(effect, target, position)
+		effect.init(self)
+		effects.append(effect)
