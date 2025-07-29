@@ -22,4 +22,4 @@ func getInfo():
 	if currentReloadCount > 0:
 		title = '[b]Бросок меча(Пер-ка: {value}):[/b] '.format({"value": G.pluralizeCountMessage(currentReloadCount)})
 
-	return ModalInfo.formatText(title + text + count)
+	return ModalInfo.formatText(title + text + count, true)

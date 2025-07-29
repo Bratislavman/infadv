@@ -6,7 +6,7 @@ class_name CommandAnim
 var animationName = ''
 var animationFunc = null
 
-func _init(caster: Unit, target: Unit, animationName, animationFunc):
+func _init(caster: Unit, target: Unit, animationName, animationFunc = null):
 	caster.commands.push_back(self) 
 	self.caster = caster
 	self.target = target
@@ -16,7 +16,8 @@ func _init(caster: Unit, target: Unit, animationName, animationFunc):
 
 #в нужный кадр анимации юнита вызывется его actionAnimation, а он вызовет эту ф-цию текущей команды
 func actionAnimation():
-	animationFunc.call()
+	if animationFunc: 
+		animationFunc.call()
 
 # также как выше, только под конец анимации
 func endAnimation():

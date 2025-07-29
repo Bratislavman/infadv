@@ -76,9 +76,21 @@ func isDeath():
 	return attributes[Attributes.attrNameHp].value == 0
 	
 func dmg(damage):
+	if effects.size():
+		for effect in effects:
+			if effect is TimeEffectTightenUp:
+				if effect.relatedTarget.isLive():
+					effect.remove()
+					return 0
+				else:
+					effect.remove()
+
 	attributes[Attributes.attrNameHp].minus(damage)
+
 	if (isDeath()):
 		playAnim("death")
+
+	return damage
 
 func health(hp):
 	if (isLive()):

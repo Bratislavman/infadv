@@ -9,5 +9,5 @@ func init():
 	unitName = 'Лео'
 	unitBio = 'Классный малый'
 	isPlayerHero = true
-	spells = [SpellAttack.new(self), SpellHealth.new(self), SpellSwordThrow.new(self), SpellShoot.new(self), SpellTaming.new(self), SpellStrongAttack.new(self)]
+	spells = [SpellAttack.new(self), SpellHealth.new(self), SpellSwordThrow.new(self), SpellShoot.new(self), SpellTaming.new(self), SpellStrongAttack.new(self), SpellTightenUp.new(self)]
 	super.init()

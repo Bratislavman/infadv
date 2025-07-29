@@ -8,7 +8,7 @@ func _init(caster: Unit, target: Unit, dmgValue = 0):
 	var dmg = func():
 		if dmgValue == 0:
 			dmgValue = dmgConst
-		target.dmg(dmgValue)
+		dmgConst = target.dmg(dmgValue)
 		addSpecEffect(preload("res://main/battle/effects/hit/Hit.tscn"))
 		G.battleController.addSpecEffectDmg(dmgConst, target)
 		

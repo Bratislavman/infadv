@@ -4,7 +4,6 @@ class_name TimeEffectStrongAttackTarget
 
 func _init(target, relatedEffect):
 	self.relatedEffectParent = relatedEffect
-	countTurns = 3
 	nameEffect = 'Цель мощной атаки'
 	name='TimeEffectStrongAttackTarget'
 	descriptionEffect = 'В скорем времени вы получите мощный урон'
