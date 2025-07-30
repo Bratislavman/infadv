@@ -3,7 +3,7 @@ extends TimeEffect
 class_name TimeEffectTightenUp
 
 func _init(caster, target):
-	countTurns = 3
+	countTurns = 2
 	name = 'TimeEffectTightenUp'
 	self.target = target
 	self.relatedTarget = caster
@@ -11,7 +11,7 @@ func _init(caster, target):
 
 func getInfo():
 	var count = G.pluralizeCountMessage(countTurns, true)
-	return ModalInfo.formatText('[b]Притягивание:[/b] Союзник/вы спасёт вас в момент одной атаки в течении 3 ходов.' + count)	
+	return ModalInfo.formatText('[b]Притягивание:[/b] Союзник/вы спасёт вас в момент одной атаки в течении одного хода.')	
 
 func remove():
 	if relatedTarget && relatedTarget.isLive():
