@@ -37,6 +37,9 @@ func effectCountTurnsMinus():
 func effectAction():
 	effectCountTurnsMinus()
 
+func getInfo():
+	return ModalInfo.formatText('')
+
 func remove():
 	if target:
 		var index = target.effects.find(self)

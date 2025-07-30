@@ -10,3 +10,7 @@ func _init(caster):
 
 func postSpellAction():
 	CommandStrongAttack.new(caster, target)
+
+func getInfo():
+	var text = '[b]Мощная атака:[/b] В течении 3 ходов готовится сильная атака, что пропускает ход, затем наносится сильный урон.'
+	return ModalInfo.formatText(text, true)

@@ -13,3 +13,6 @@ func _init(target, relatedEffect):
 	specEffect.init()
 
 	super._init(target)
+
+func getInfo():
+	return ModalInfo.formatText('[b]Цель сильной таки:[/b] Когда враг будет готов, он нанесёт вам мощный урон.')

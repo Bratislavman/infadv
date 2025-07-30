@@ -9,8 +9,8 @@ func _init(caster):
 	targetTags = [Unit.unitTypeList.flying, Unit.unitTypeList.foot]
 	super._init(caster)
 
-func getInfo():
-	return ModalInfo.formatText('[b]Притянуть:[/b]  Позволяет спасти себия или союзника от одной атаки в течении 3 ходов.', true)
-
 func postSpellAction():
 	CommandTightenUp.new(caster, target)
+
+func getInfo():
+	return ModalInfo.formatText('[b]Притянуть:[/b]  Позволяет спасти себия или союзника от одной атаки в течении 3 ходов.', true)

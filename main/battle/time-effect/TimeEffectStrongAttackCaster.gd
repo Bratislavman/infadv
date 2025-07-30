@@ -20,3 +20,6 @@ func _init(target, relatedTarget):
 func remove():
 	CommandAttackMeleeBig.new(target, relatedTarget)
 	super.remove()
+
+func getInfo():
+	return ModalInfo.formatText('[b]Подготовка сильной атаки:[/b] После подготовки будет нанесена мощная атака.')	

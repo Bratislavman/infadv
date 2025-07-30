@@ -11,3 +11,7 @@ func _init(caster):
 
 func postSpellAction():
 	CommandAttackShoot.new(caster, target)
+
+func getInfo():
+	var text = '[b]Выстрел:[/b] Наносит 3 ед. урона летающему и пешему противнику.'
+	return ModalInfo.formatText(text, true)

@@ -11,3 +11,7 @@ func _init(caster):
 
 func postSpellAction():
 	CommandTaming.new(caster, target)
+
+func getInfo():
+	var text = '[b]Подчинение:[/b] Подчиняет врага на 3 хода.'
+	return ModalInfo.formatText(text, true)
